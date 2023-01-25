@@ -2,7 +2,7 @@ import styled from "styled-components"
 import {AiTwotoneHome} from 'react-icons/ai'
 import {HiMagnifyingGlass} from 'react-icons/hi2'
 import {BsBasket} from 'react-icons/bs'
-import {SiGooglesheets} from 'react-icons/si'
+import {BsPerson} from 'react-icons/bs'
 
 
 export default function Footer(props){
@@ -11,7 +11,7 @@ export default function Footer(props){
             <AiTwotoneHome className="svg"></AiTwotoneHome>
             <HiMagnifyingGlass className="svg"></HiMagnifyingGlass>
             <BsBasket className="svg" ></BsBasket>
-            <SiGooglesheets className="svg"></SiGooglesheets>
+            <BsPerson className="svg"></BsPerson>
             <img src={'./assets/img/papaleguas.gif'}></img>
             
         </Rodapé>

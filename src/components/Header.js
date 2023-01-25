@@ -1,14 +1,15 @@
 import styled from "styled-components"
-import {BsPerson} from 'react-icons/bs'
+
 import {IoReorderThreeOutline} from 'react-icons/io5'
+import React from 'react';
 
 export default function Header(props){
     return(
-        <Cabeçalho data-test = 'header'>
-           <IoReorderThreeOutline className="svg"></IoReorderThreeOutline>
+        <Cabeçalho>
+           <IoReorderThreeOutline className="svg" onClick={() => props.setClick(!props.click)}> </IoReorderThreeOutline>
             {/* <img src={'./assets/img/papaleguas.gif'}></img> */}
             <p>BipBip!</p>
-            <BsPerson className="svg"></BsPerson>
+           
         </Cabeçalho>
     )
 }
@@ -31,6 +32,8 @@ align-items:center;
     font-size:30px;
 }
 p{
+    position:absolute;
+    left:40%;
     font-family: 'Dosis';
     font-style: normal;
     font-weight: 400;

@@ -16,7 +16,7 @@ function App() {
       <Routes>
       <Route path='/' element={<Login habilitado={habilitado} setHabilitado={setHabilitado} login={login} setLogin={setLogin} dadosusuario={dadosusuario} setDadosUsuario={setDadosUsuario}></Login>}></Route>
       <Route path="/cadastro" element={<Cadastro habilitado={habilitado} setHabilitado={setHabilitado}></Cadastro>}></Route>
-      <Route path="/home" element={<Home ></Home>}></Route>
+      <Route path="/home" element={<Home></Home>}></Route>
       </Routes>
     </BrowserRouter>
 
