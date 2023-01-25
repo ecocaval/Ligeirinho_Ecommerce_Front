@@ -14,7 +14,6 @@ export default function Login(props) {
     }, [])
     
 
-
     const navigate = useNavigate();
     const [entrar, setEntrar] = React.useState('Log in')
    
