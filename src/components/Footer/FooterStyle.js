@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const Rodape = styled.div`
 
     z-index:1;
-    box-sizing: border-box;
     padding: 0px 10px;
     width: 100%;
     height: 70px;

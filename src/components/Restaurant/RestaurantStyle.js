@@ -7,7 +7,6 @@ export const RestaurantStyled = styled.div`
     position:relative;
     display:flex;
     border-radius: 50px;
-    box-sizing: border-box;
     padding: 10px;
     width:100%;
     height: 90px;

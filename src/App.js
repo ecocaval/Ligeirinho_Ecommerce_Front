@@ -3,6 +3,7 @@ import React from "react";
 import Login from "./pages/LoginPage/Login";
 import Cadastro from "./pages/CadastroPage/Cadastro";
 import Home from "./pages/HomePage/Home";
+import styled from "styled-components"
 
 function App() {
 
@@ -11,30 +12,38 @@ function App() {
   const [dadosusuario, setDadosUsuario] = React.useState()
 
   return (
-    <BrowserRouter>
-      <Routes>
+    <Container>
 
-        <Route path='/' element={
-          <Login
-            habilitado={habilitado}
-            setHabilitado={setHabilitado}
-            login={login}
-            setLogin={setLogin}
-            dadosusuario={dadosusuario}
-            setDadosUsuario={setDadosUsuario} />} />
+      <BrowserRouter>
+        <Routes>
 
-        <Route path="/cadastro" element={
-          <Cadastro
-            habilitado={habilitado}
-            setHabilitado={setHabilitado}
-          />} />
+          <Route path='/' element={
+            <Login
+              habilitado={habilitado}
+              setHabilitado={setHabilitado}
+              login={login}
+              setLogin={setLogin}
+              dadosusuario={dadosusuario}
+              setDadosUsuario={setDadosUsuario} />} />
 
-        <Route path="/home" element={<Home />} />
+          <Route path="/cadastro" element={
+            <Cadastro
+              habilitado={habilitado}
+              setHabilitado={setHabilitado}
+            />} />
 
-      </Routes>
-    </BrowserRouter>
+          <Route path="/home" element={<Home />} />
+
+        </Routes>
+      </BrowserRouter>
+
+    </Container>
   );
 }
+
+const Container = styled.div`
+  overflow: hidden;
+`
 
 export default App;
 
