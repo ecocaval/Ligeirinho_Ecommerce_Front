@@ -6,7 +6,9 @@ import styled from "styled-components"
 export default function Restaurant(props){
     return(
         <>
-        <RestaurantStyled>
+        <RestaurantStyled onClick={() => {
+            
+        }}>
             {/* Todos estes dados abaixo virão da API. pegar as props que virão e colocar nas devidas informações */}
             <img src="./assets/img/carterita.png"></img>
             <div className="description">
