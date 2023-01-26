@@ -1,12 +1,16 @@
 import styled from "styled-components"
 
-export const LoginHome = styled.div`
+export const Wrapper = styled.div`
     height: 100vh;
     display:flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     background: #ff8d00;
+
+    a {
+        text-decoration: none;
+    }
     
     .cadastro   {
         text-align: center;
@@ -24,7 +28,7 @@ export const LoginHome = styled.div`
         align-items: center;
     }
 `
-export const Imagem = styled.div`   
+export const StyledImage = styled.div`   
     display:flex;
     justify-content: space-between;
     flex-direction: column;
@@ -51,48 +55,55 @@ export const Imagem = styled.div`
     }
 `
 
-//! Reaproveitar esses LoginInputs aqui do CadastroStyle se possivelç
-export const LoginInputs = styled.div`
-    min-height:160px;
+export const StyledInputs = styled.div`
+
     display:flex;
-    justify-content: space-between;
+    width: 300px;
     flex-direction: column;
-    margin-bottom:25px;
-    margin-top:30px;
+    /* border: 2px blue solid; */
+    margin: 30px auto;
 
     input   {
-        width: 303px;
+        margin: auto;
+        margin-bottom: 25px;
+        padding: 10px;
+        width: 300px;
         height: 45px;
         background: #FFFFFF;
         border: 1px solid #D5D5D5;
         border-radius: 5px;
         font-family: 'Raleway';
-        font-style: normal;
         font-weight: 400;
-        font-size: 19.976px;
-        line-height: 25px;
+        font-size: 20px;
         color:  #000000;
+        transition: all 0.4s;
+     
+        &:focus {
+            width: 320px;
+            height: 50px;
+            transform: translate(-10px, 0); 
+        }
     }
 `
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
 
     background: #eda428;
-    border-radius: 4.63636px;
-    width: 303px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
     height: 45px;
     font-family: 'Lexend Deca';
-    font-style: normal;
     font-weight: 400;
-    font-size: 20.976px;
+    font-size: 20px;
     color: #FFFFFF;
     display:flex;
     justify-content: center;
     align-items:center;
-    transition: all 0.3s linear;
+    transition: all 0.2s linear;
     
     :hover{
-        scale: 0.9;
-        
+        scale: 0.96;        
+        cursor: pointer;
     }
 `

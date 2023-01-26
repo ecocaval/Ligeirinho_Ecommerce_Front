@@ -7,7 +7,6 @@ export const Section = styled.div`
     width: 100%;
     z-index: 0;
     padding: 10px;
-    box-sizing: border-box;
 `
 
 export const SideBar = styled.div`
@@ -21,11 +20,9 @@ export const SideBar = styled.div`
     z-index:2;
     border-style: solid;
     border-color: #ff8d00;
-    border-width: 6px;
-    box-sizing: border-box;
-    
-    
-    `
+    border-width: 6px;   
+`
+
 export const OutSideBar = styled.div`
     display: ${props => props.click ? 'block' : "none"};
     width:50%;

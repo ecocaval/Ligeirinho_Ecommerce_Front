@@ -5,7 +5,8 @@ import { Animated } from "react-animated-css";
 import axios from "axios";
 
 import ThreeDotsLoader from "../../components/Loaders/ThreeDotsLoader";
-import { Button, Imagem, LoginHome, LoginInputs } from "./LoginStyle";
+import { StyledButton, StyledImage, StyledInputs, Wrapper } from "./LoginStyle";
+import TransparentBackground from "../../components/Backgrounds/TransparentBackground";
 
 export default function Login(props) {
 
@@ -37,29 +38,28 @@ export default function Login(props) {
     }
 
     return (
-        <LoginHome>
+        <Wrapper>
+            
+            <TransparentBackground/>
+
             <Animated
-                animationIn="slideInLeft"
-                animationOut="slideOutRight"
+                animationIn="fadeInDown"
                 animationInDuration={1000}
-                animationOutDuration={1000}
                 isVisible={true}
             >
-                <Imagem>
+                <StyledImage>
                     <img src="./assets/img/papaleguas.gif" alt=""></img>
                     <h1>Ligeirinho</h1>
                     <p>Seu pedido em até 30 minutos</p>
-                </Imagem>
+                </StyledImage>
             </Animated>
 
             <Animated
-                animationIn="slideInRight"
-                animationOut="slideInLeft"
-                animationInDuration={1000}
-                animationOutDuration={1000}
+                animationIn="fadeInUp"
+                animationInDuration={1200}
                 isVisible={true}
             >
-                <LoginInputs>
+                <StyledInputs>
                     <input
                         type='email'
                         placeholder="email"
@@ -72,13 +72,13 @@ export default function Login(props) {
                         disabled={props.habilitado}
                         onChange={e => props.setLogin({ ...props.login, password: e.target.value })}
                     />
-                    <Button onClick={() => handleButton()}>
+                    <StyledButton onClick={() => handleButton()}>
                         {entrar === 'Log in' ? entrar : <ThreeDotsLoader />}
-                    </Button>
-                </LoginInputs>
+                    </StyledButton>
+                </StyledInputs>
 
                 <Link to='/cadastro'><p className="cadastro" > Don't have an account yet? Register</p></Link>
             </Animated>
-        </LoginHome>
+        </Wrapper>
     )
 }

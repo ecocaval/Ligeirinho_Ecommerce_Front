@@ -2,9 +2,10 @@ import { Link } from "react-router-dom"
 import axios from "axios"
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { Imagem } from "../LoginPage/LoginStyle"
-import { Button, CadastroHome, Inputs } from "./CadastroStyle"
+import { StyledImage, StyledInputs, Wrapper, StyledButton } from "../LoginPage/LoginStyle"
 import ThreeDotsLoader from "../../components/Loaders/ThreeDotsLoader"
+import { Animated } from "react-animated-css"
+import TransparentBackground from "../../components/Backgrounds/TransparentBackground"
 
 export default function Cadastro(props) {
 
@@ -28,44 +29,60 @@ export default function Cadastro(props) {
     }
 
     return (
-        <CadastroHome>
-            <Imagem>
-                <img src="./assets/img/papaleguas.gif" alt=""></img>
-                <h1>Ligeirinho</h1>
-                <p>Seu pedido em até 30 minutos</p>
-            </Imagem>
-            <Inputs>
-                <input
-                    type='text'
-                    placeholder="name"
-                    value={usuario.name}
-                    onChange={e => setUsuario({ ...usuario, name: e.target.value })}
-                    disabled={props.habilitado}
-                />
-                <input
-                    type='email'
-                    placeholder="e-mail"
-                    value={usuario.email}
-                    onChange={e => setUsuario({ ...usuario, email: e.target.value })}
-                    disabled={props.habilitado}
-                />
-                <input
-                    type='password'
-                    placeholder="password"
-                    onChange={e => setUsuario({ ...usuario, password: e.target.value })}
-                    disabled={props.habilitado}
-                />
-                <input
-                    type='password'
-                    placeholder="confirm password"
-                    onChange={e => setUsuario({ ...usuario, confirmPassword: e.target.value })}
-                    disabled={props.habilitado}
-                />
-                <Button onClick={() => handleButton()}>
-                    {entrar === 'Register' ? entrar : <ThreeDotsLoader />}
-                </Button>
-            </Inputs>
-            <Link to='/'><p className="cadastro"> Already have an account? Log in!</p></Link>
-        </CadastroHome>
+        <Wrapper>
+            <TransparentBackground />
+
+            <Animated
+                animationIn="fadeInDown"
+                animationInDuration={1000}
+                animationOutDuration={1000}
+                isVisible={true}
+            >
+                <StyledImage>
+                    <img src="./assets/img/papaleguas.gif" alt=""></img>
+                    <h1>Ligeirinho</h1>
+                    <p>Seu pedido em até 30 minutos</p>
+                </StyledImage>
+            </Animated>
+            <Animated
+                animationIn="fadeInUp"
+                animationInDuration={1000}
+                animationOutDuration={1000}
+                isVisible={true}
+            >
+                <StyledInputs>
+                    <input
+                        type='text'
+                        placeholder="name"
+                        value={usuario.name}
+                        onChange={e => setUsuario({ ...usuario, name: e.target.value })}
+                        disabled={props.habilitado}
+                    />
+                    <input
+                        type='email'
+                        placeholder="e-mail"
+                        value={usuario.email}
+                        onChange={e => setUsuario({ ...usuario, email: e.target.value })}
+                        disabled={props.habilitado}
+                    />
+                    <input
+                        type='password'
+                        placeholder="password"
+                        onChange={e => setUsuario({ ...usuario, password: e.target.value })}
+                        disabled={props.habilitado}
+                    />
+                    <input
+                        type='password'
+                        placeholder="confirm password"
+                        onChange={e => setUsuario({ ...usuario, confirmPassword: e.target.value })}
+                        disabled={props.habilitado}
+                    />
+                    <StyledButton onClick={() => handleButton()}>
+                        {entrar === 'Register' ? entrar : <ThreeDotsLoader />}
+                    </StyledButton>
+                </StyledInputs>
+                <Link to='/'><p className="cadastro"> Already have an account? Log in!</p></Link>
+            </Animated>
+        </Wrapper>
     )
 }
