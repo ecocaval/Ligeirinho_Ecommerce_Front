@@ -30,12 +30,9 @@ export default function ProductPage() {
 
         const product = getResponse.data
 
-
         const images = product.bigImages.map(image => ({
             original: image
         }))
-
-        // console.log(restaurantId);
 
         getResponse = await axios.get(`${restaurantUrl}/${product.restaurantId}`, {
             headers: {
@@ -44,7 +41,6 @@ export default function ProductPage() {
         })
 
         const restaurant = getResponse.data
-
 
         setProductImages(images)
         setRestaurantRequested(restaurant)
@@ -109,7 +105,7 @@ const ProductFlex = styled.div`
     display: flex;
     max-width: 600px;
     height: 50px;
-    margin: 20px auto;
+    margin: 30px auto;
     /* border: 2px blue solid; */
 `
 

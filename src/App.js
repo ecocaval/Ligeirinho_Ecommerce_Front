@@ -4,6 +4,7 @@ import Login from "./pages/LoginPage/Login";
 import Cadastro from "./pages/CadastroPage/Cadastro";
 import Home from "./pages/HomePage/Home";
 import styled from "styled-components"
+import RestaurantDetails from "./pages/RestaurantDetailsPage/RestaurantDetails";
 import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
   const [habilitado, setHabilitado] = React.useState(false)
   const [login, setLogin] = React.useState({ email: '', password: '' })
   const [dadosusuario, setDadosUsuario] = React.useState()
+  const [restaurantdata, setRestaurantData] = React.useState()
 
+  const [restaurantchoosed, setRestaurantChoosed] = React.useState()
   return (
     <Container>
 
@@ -33,7 +36,18 @@ function App() {
               setHabilitado={setHabilitado}
             />} />
 
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={
+            <Home
+              dadosusuario={dadosusuario}
+              setDadosUsuario={setDadosUsuario}
+              restaurantdata={restaurantdata}
+              setRestaurantData={setRestaurantData}
+              setRestaurantChoosed={setRestaurantChoosed}
+            />} />
+
+          <Route path="/restaurant" element={
+            <RestaurantDetails restaurantchoosed={restaurantchoosed}
+            />} />
 
           <Route path="/restaurant/product" element={<ProductPage />} />
 

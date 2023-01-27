@@ -1,12 +1,12 @@
 .papaleguas {
-    animation: go-back 1s infinite alternate;
+    animation: go-back 5s infinite linear;
   }
   
   @keyframes go-back {
     from {
-      transform: translateX(110px);
+      transform: translateX(-100px);
     }
     to {
-      transform: translateX(0px);
+      transform: translateX(1000px);
     }
   }

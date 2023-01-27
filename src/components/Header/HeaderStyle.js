@@ -30,9 +30,28 @@ export const Cabecalho = styled.div`
     img {
         width: 120px;
     }
+
+    .animated-header {
+    animation: fade-in 3s ease-in-out forwards;
+    opacity: 0; /* começa com opacidade 0 (invisível) */
+    }   
+
+    @keyframes fade-in {
+    0% {
+        opacity: 0; /* começa com opacidade 0 */
+    }
+    100% {
+        opacity: 1; /* termina com opacidade 1 (totalmente visível) */
+    }
+    }
 `
 
-export const SideWrapper = styled.div`
-    position: fixed ;
-    left: 5%;
+export const Left = styled.div`
+    position: fixed;
+    left: 15px;
+    transition: all 0.2s;
+
+    @media (max-width: 200px) {
+        opacity: 0;
+    }
 `
