@@ -36,7 +36,7 @@ export const Cabecalho = styled.div`
     }
 
     .animated-header {
-  animation: fade-in 5s ease-in-out forwards;
+  animation: fade-in 3s ease-in-out forwards;
   opacity: 0; /* começa com opacidade 0 (invisível) */
 }
 

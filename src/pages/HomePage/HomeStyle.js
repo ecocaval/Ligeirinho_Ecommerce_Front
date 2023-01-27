@@ -39,10 +39,21 @@ h3{
     text-align: center;
     
 }
+.svg{
+    color:black;
+}
+.star{
+    display:flex;
+}
+.heart{
+    position:absolute;
+    right: 0;
+    margin-right: 10px;
+}
 
 
 .animated-text {
-  animation: animation-title 5s ease-in-out forwards;
+  animation: animation-title 3s ease-in-out forwards;
   position: absolute;
   left: -100%;
   opacity: 0;
