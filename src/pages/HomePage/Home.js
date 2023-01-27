@@ -55,9 +55,10 @@ export default function Home(props) {
                 <p>Açaí</p>
             </NavBar>
             <Section>
+                {/* para filtrar os restaurantes pelo tipo de comida misturar filter com map */}
                 {props.restaurantdata?.length !== 0 ? props.restaurantdata.map(r => {return <Restaurant className='teste'  img={r.smallImages[0]} typeOfFood={r.typeOfFood} name={r.name} setRestaurantChoosed={props.setRestaurantChoosed}></Restaurant>}) : ''}
 
-                {/* Aqui deve-se fazer um map na lista de restaurantes. Cada informação do restaurante (imagem, nome e descrição) devem ir como props para o componente Restaurant */}
+                
 
             </Section>
         </>
@@ -81,4 +82,4 @@ export default function Home(props) {
 //     animationInDuration={1000}
 //     animationOutDuration={1000}
 //     isVisible={true}>
-//  </Animated> 
+//  </Animated> 000000000000000000000000000000000000
