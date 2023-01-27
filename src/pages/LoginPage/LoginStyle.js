@@ -8,6 +8,30 @@ export const Wrapper = styled.div`
     align-items: center;
     background: #ff8d00;
 
+    .animated-image {
+  animation: slide-in 5s linear infinite, flip 0.1s linear 1;
+  position: relative; 
+  animation-direction: alternate;
+}
+
+
+.animated-image {
+  animation: slide-in 3s linear infinite;
+  position: relative; 
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%); /* começa fora da tela à esquerda */
+  }
+  100% {
+    transform: translateX(100%); /* move para a direita e sai da tela */
+  }
+}
+
+
+
+    
     a {
         text-decoration: none;
     }

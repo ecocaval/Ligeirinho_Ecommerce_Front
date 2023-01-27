@@ -11,7 +11,7 @@ export default function Header(props) {
                 onClick={() => props.setClick(!props.click)}
             />
             {/* <img src={'./assets/img/papaleguas.gif'}></img> */}
-            <p>BipBip!</p>
+            <p className='animated-header'>BipBip!</p>
         </Cabecalho>
     )
 }

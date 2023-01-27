@@ -17,13 +17,20 @@ export const RestaurantStyled = styled.div`
     font-weight: 700;
     line-height: 18px;
     color: #ffae00;
+
+    .divHeart{
+        width: 20px;
+    }
     .heart{
+        pointer-events: all;
+        /* background-color: #ffaa00; */
         color:red;
         position: absolute;
         right: 30px;
         top:25%;
         font-size: 30px;
         pointer-events: none;
+        z-index: 4;
     }
     .star{
         display: flex;

@@ -30,6 +30,38 @@ p{
     margin-right: 10px;
     text-align: center;
 }
+
+h3{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    margin-right: 10px;
+    text-align: center;
+    
+}
+
+
+.animated-text {
+  animation: animation-title 5s ease-in-out forwards;
+  position: absolute;
+  left: -100%;
+  opacity: 0;
+}
+
+@keyframes animation-title {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+
+
 `
 
 

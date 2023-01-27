@@ -49,7 +49,7 @@ export default function Login(props) {
                 isVisible={true}
             >
                 <StyledImage>
-                    <img src="./assets/img/papaleguas.gif" alt=""></img>
+                    <img src="./assets/img/papaleguas.gif" className="animated-image" alt=""></img>
                     <h1>Ligeirinho</h1>
                     <p>Seu pedido em até 30 minutos</p>
                 </StyledImage>

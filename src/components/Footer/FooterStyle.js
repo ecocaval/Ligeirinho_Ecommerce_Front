@@ -35,4 +35,5 @@ export const Rodape = styled.div`
         top: -23px;
         width: 120px;
     }
+    
 `

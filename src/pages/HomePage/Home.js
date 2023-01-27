@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { NavBar } from "./HomeStyle";
 
 export default function Home(props) {
-    const navigate=useNavigate()
+   
     console.log(props)
     const [click, setClick] = React.useState(false)
     const config = {
@@ -45,6 +45,7 @@ export default function Home(props) {
 
             </Footer>
             <NavBar>
+                {/* Ao clicar em algum tipo de comida deve-se guardar o nome do tipo de comida em um estado. Daí em <Section/> deve-se fazer um filter do props.restaurantdata.typeOfFood comparando como estado */}
                 <p>Todos</p>
                 <p>Japonesa</p>
                 <p>Brasileira</p>
@@ -54,7 +55,7 @@ export default function Home(props) {
                 <p>Açaí</p>
             </NavBar>
             <Section>
-                {props.restaurantdata?.length !== 0 ? props.restaurantdata.map(r => {return <Restaurant img={r.smallImages[0]} typeOfFood={r.typeOfFood} name={r.name} ></Restaurant>}) : ''}
+                {props.restaurantdata?.length !== 0 ? props.restaurantdata.map(r => {return <Restaurant className='teste'  img={r.smallImages[0]} typeOfFood={r.typeOfFood} name={r.name} setRestaurantChoosed={props.setRestaurantChoosed}></Restaurant>}) : ''}
 
                 {/* Aqui deve-se fazer um map na lista de restaurantes. Cada informação do restaurante (imagem, nome e descrição) devem ir como props para o componente Restaurant */}
 
