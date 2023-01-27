@@ -26,6 +26,7 @@ export default function Login(props) {
 
         axios.post(`${process.env.REACT_APP_API_URL}/login`, props.login)
             .then((res) => {
+                console.log(res)
                 props.setDadosUsuario(res.data)
                 props.setHabilitado(false);
                 navigate('/home')
