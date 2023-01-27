@@ -4,6 +4,7 @@ import { Section } from "../HomePage/HomeStyle";
 import { NavBar } from "../HomePage/HomeStyle";
 import { AiFillStar } from 'react-icons/ai';
 import {BsHeartFill} from 'react-icons/bs';
+
 export default function RestaurantDetails(props) {
     console.log(props)
 

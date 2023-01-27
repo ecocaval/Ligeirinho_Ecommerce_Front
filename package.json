@@ -14,6 +14,7 @@
     "react-animated-css": "^1.2.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-image-gallery": "^1.2.11",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",

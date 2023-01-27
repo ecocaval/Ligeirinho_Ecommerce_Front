@@ -5,7 +5,7 @@ import Cadastro from "./pages/CadastroPage/Cadastro";
 import Home from "./pages/HomePage/Home";
 import styled from "styled-components"
 import RestaurantDetails from "./pages/RestaurantDetailsPage/RestaurantDetails";
-
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
 
@@ -36,10 +36,20 @@ function App() {
               setHabilitado={setHabilitado}
             />} />
 
-          <Route path="/home" element={<Home dadosusuario={dadosusuario}
-            setDadosUsuario={setDadosUsuario} restaurantdata={restaurantdata} setRestaurantData={setRestaurantData} setRestaurantChoosed={setRestaurantChoosed} />} />
+          <Route path="/home" element={
+            <Home
+              dadosusuario={dadosusuario}
+              setDadosUsuario={setDadosUsuario}
+              restaurantdata={restaurantdata}
+              setRestaurantData={setRestaurantData}
+              setRestaurantChoosed={setRestaurantChoosed}
+            />} />
+
           <Route path="/restaurant" element={
-            <RestaurantDetails restaurantchoosed={restaurantchoosed}/>} />
+            <RestaurantDetails restaurantchoosed={restaurantchoosed}
+            />} />
+
+          <Route path="/restaurant/product" element={<ProductPage />} />
 
         </Routes>
       </BrowserRouter>
