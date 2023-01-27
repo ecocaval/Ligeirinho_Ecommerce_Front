@@ -4,6 +4,7 @@ import Login from "./pages/LoginPage/Login";
 import Cadastro from "./pages/CadastroPage/Cadastro";
 import Home from "./pages/HomePage/Home";
 import styled from "styled-components"
+import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
             />} />
 
           <Route path="/home" element={<Home />} />
+
+          <Route path="/restaurant/product" element={<ProductPage />} />
 
         </Routes>
       </BrowserRouter>

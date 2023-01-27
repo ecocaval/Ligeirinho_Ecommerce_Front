@@ -11,7 +11,7 @@ export default function Cadastro(props) {
 
     const navigate = useNavigate();
     const [usuario, setUsuario] = React.useState({ email: '', name: '', password: '', confirmPassword: '' })
-    const [entrar, setEntrar] = React.useState('Register')
+    const [entrar, setEntrar] = React.useState('Registrar')
 
     async function handleButton() { // Trocar pra await try/catch depois se possivel
         setEntrar('')
@@ -24,7 +24,7 @@ export default function Cadastro(props) {
             }).catch(() => {
                 alert('Não foi possível cadastrar o usuário.')
                 props.setHabilitado(false)
-                setEntrar('Register')
+                setEntrar('Registrar')
             })
     }
 
@@ -53,35 +53,35 @@ export default function Cadastro(props) {
                 <StyledInputs>
                     <input
                         type='text'
-                        placeholder="name"
+                        placeholder="nome"
                         value={usuario.name}
                         onChange={e => setUsuario({ ...usuario, name: e.target.value })}
                         disabled={props.habilitado}
                     />
                     <input
                         type='email'
-                        placeholder="e-mail"
+                        placeholder="email"
                         value={usuario.email}
                         onChange={e => setUsuario({ ...usuario, email: e.target.value })}
                         disabled={props.habilitado}
                     />
                     <input
                         type='password'
-                        placeholder="password"
+                        placeholder="senha" 
                         onChange={e => setUsuario({ ...usuario, password: e.target.value })}
                         disabled={props.habilitado}
                     />
                     <input
                         type='password'
-                        placeholder="confirm password"
+                        placeholder="confirme sua senha"
                         onChange={e => setUsuario({ ...usuario, confirmPassword: e.target.value })}
                         disabled={props.habilitado}
                     />
                     <StyledButton onClick={() => handleButton()}>
-                        {entrar === 'Register' ? entrar : <ThreeDotsLoader />}
+                        {entrar === 'Registrar' ? entrar : <ThreeDotsLoader />}
                     </StyledButton>
                 </StyledInputs>
-                <Link to='/'><p className="cadastro"> Already have an account? Log in!</p></Link>
+                <Link to='/'><p className="cadastro"> Já possui uma conta? Clique aqui</p></Link>
             </Animated>
         </Wrapper>
     )
