@@ -12,7 +12,7 @@ export const Cabecalho = styled.div`
     background: #ff8d00;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items:center;
 
     .svg    {
@@ -21,14 +21,10 @@ export const Cabecalho = styled.div`
     }
     
     p   {
-        position:absolute;
-        left:40%;
         font-family: 'Dosis';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 38.982px;
-        line-height: 49px;
+        font-size: 38px;
         color: #FFFFFF;
+        margin-bottom: 10px;
     }
 
     img {
@@ -36,16 +32,26 @@ export const Cabecalho = styled.div`
     }
 
     .animated-header {
-  animation: fade-in 3s ease-in-out forwards;
-  opacity: 0; /* começa com opacidade 0 (invisível) */
-}
+    animation: fade-in 3s ease-in-out forwards;
+    opacity: 0; /* começa com opacidade 0 (invisível) */
+    }   
 
-@keyframes fade-in {
-  0% {
-    opacity: 0; /* começa com opacidade 0 */
-  }
-  100% {
-    opacity: 1; /* termina com opacidade 1 (totalmente visível) */
-  }
-}
+    @keyframes fade-in {
+    0% {
+        opacity: 0; /* começa com opacidade 0 */
+    }
+    100% {
+        opacity: 1; /* termina com opacidade 1 (totalmente visível) */
+    }
+    }
+`
+
+export const Left = styled.div`
+    position: fixed;
+    left: 15px;
+    transition: all 0.2s;
+
+    @media (max-width: 200px) {
+        opacity: 0;
+    }
 `

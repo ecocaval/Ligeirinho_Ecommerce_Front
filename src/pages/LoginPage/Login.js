@@ -10,14 +10,14 @@ import TransparentBackground from "../../components/Backgrounds/TransparentBackg
 
 export default function Login(props) {
 
-    useEffect(() => {
-        const audio = new Audio('./assets/audios/papaleguas.mp3')
-        audio.play();
-    }, [])
+    // useEffect(() => {
+    //     const audio = new Audio('./assets/audios/papaleguas.mp3')
+    //     audio.play();
+    // }, [])
 
     const navigate = useNavigate();
 
-    const [entrar, setEntrar] = useState('Log in')
+    const [entrar, setEntrar] = useState('Entrar')
 
     async function handleButton() { // Trocar pra await try/catch depois se possivel
 
@@ -29,12 +29,13 @@ export default function Login(props) {
                 console.log(res)
                 props.setDadosUsuario(res.data)
                 props.setHabilitado(false);
+                setEntrar('Entrar')
                 navigate('/home')
             })
             .catch(() => {
                 alert('Usuário ou senha incorretos')
                 props.setHabilitado(false)
-                setEntrar('Log in')
+                setEntrar('Entrar')
             })
     }
 
@@ -69,16 +70,16 @@ export default function Login(props) {
                     />
                     <input
                         type='password'
-                        placeholder="password"
+                        placeholder="senha"
                         disabled={props.habilitado}
                         onChange={e => props.setLogin({ ...props.login, password: e.target.value })}
                     />
                     <StyledButton onClick={() => handleButton()}>
-                        {entrar === 'Log in' ? entrar : <ThreeDotsLoader />}
+                        {entrar === 'Entrar' ? entrar : <ThreeDotsLoader />}
                     </StyledButton>
                 </StyledInputs>
 
-                <Link to='/cadastro'><p className="cadastro" > Don't have an account yet? Register</p></Link>
+                <Link to='/cadastro'><p className="cadastro" > Ainda não tenha uma conta? Clique aqui</p></Link>
             </Animated>
         </Wrapper>
     )
