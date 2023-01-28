@@ -30,7 +30,11 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
     const exampleToken = "Bearer 84101767-d4fc-451f-b0e2-73d6a546573c"
     const restaurantUrl = "https://idrive-back.onrender.com/restaurants"
 
-    useEffect(() => async () => {
+    useEffect(() => {
+        getProductInfo()
+    }, [])
+
+    async function getProductInfo() {
 
         let getResponse = await axios.get(exampleUrl, {
             headers: {
@@ -53,7 +57,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
         setRestaurantRequested(restaurant)
         setProductRequested(product)
         setReceivedInfo(true)
-    }, [])
+    }
 
     async function sendOrder() {
 
@@ -154,27 +158,27 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                         <DescriptionTitle>
                             <p>Deseja adicionar alguma observação?</p>
                             <div>
-                            <BsFillCheckCircleFill
-                                onClick={() => {
-                                    if (userWantsDescription) setUserDescription("")
-                                    setUserWantsDescription(!userWantsDescription)
-                                }}
-                                color={userWantsDescription ? "#30cf2d" : ""}
-                                style={userWantsDescription ? checkerStyle : {
-                                    transition: "all 0.2s"
-                                }}
-                            />
-                            <BsXCircleFill
-                                onClick={() => {
-                                    if (userWantsDescription) setUserDescription("")
-                                    setUserWantsDescription(!userWantsDescription)
-                                }}
-                                color={!userWantsDescription ? "#e35219" : ""}
-                                style={!userWantsDescription ? checkerStyle2 : {
-                                    transition: "all 0.2s",
-                                    marginLeft: "5px"
-                                }}
-                            />
+                                <BsFillCheckCircleFill
+                                    onClick={() => {
+                                        if (userWantsDescription) setUserDescription("")
+                                        setUserWantsDescription(!userWantsDescription)
+                                    }}
+                                    color={userWantsDescription ? "#30cf2d" : ""}
+                                    style={userWantsDescription ? checkerStyle : {
+                                        transition: "all 0.2s"
+                                    }}
+                                />
+                                <BsXCircleFill
+                                    onClick={() => {
+                                        if (userWantsDescription) setUserDescription("")
+                                        setUserWantsDescription(!userWantsDescription)
+                                    }}
+                                    color={!userWantsDescription ? "#e35219" : ""}
+                                    style={!userWantsDescription ? checkerStyle2 : {
+                                        transition: "all 0.2s",
+                                        marginLeft: "5px"
+                                    }}
+                                />
                             </div>
                         </DescriptionTitle>
                         <DescriptionTextArea
