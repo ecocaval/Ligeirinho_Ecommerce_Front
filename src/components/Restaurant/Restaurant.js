@@ -12,7 +12,7 @@ export default function Restaurant(props) {
     return (
         <>
             <RestaurantStyled onClick={() => {
-                    console.log('teste')
+                    // console.log('teste')
                     props.setRestaurantChoosed({name: props.name, typeOfFood: props.typeOfFood, img: props.img})
                     navigate('/restaurant')
                 }}>
@@ -26,10 +26,10 @@ export default function Restaurant(props) {
                     
                 </div>
                 {clicked ? <BsHeartFill onClick={() => {
-                    console.log('teste')
+                    // console.log('teste')
                     setClicked(!clicked)
                 }} className="heart"></BsHeartFill> : <BsHeart onClick={() => {
-                    console.log('teste coração vazio')
+                    // console.log('teste coração vazio')
                     setClicked(!clicked)
                 }} className="heart"></BsHeart> } 
                 {/* esses eventos de onclick nao estão funcionando. Parece que o react-icon nao reconhece o click. Resolver isso */}

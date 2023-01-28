@@ -8,7 +8,7 @@ import { Banner, Category, Product, SectionProduct, Image, Description, Price } 
 import { Products } from "./RestauranteDetailsStyled";
 
 export default function RestaurantDetails(props) {
-    console.log(props)
+    // console.log(props)
 
     return (
         <>

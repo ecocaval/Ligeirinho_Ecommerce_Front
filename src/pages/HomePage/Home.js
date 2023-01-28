@@ -10,28 +10,28 @@ import { Link } from "react-router-dom";
 import { NavBar } from "./HomeStyle";
 
 export default function Home(props) {
-   
-    console.log(props)
+
+    // console.log(props)
     const [click, setClick] = React.useState(false)
     const config = {
         headers: {
-            Authorization: props.dadosusuario.token
+            Authorization: props.dadosUsuario.token
         }
     }
-    console.log(props.restaurantdata)
+    // console.log(props.restaurantData)
     React.useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/restaurants`, config).then(resp => {
-            console.log(resp)
+            // console.log(resp)
             props.setRestaurantData(resp.data)
         })
 
     }, [])
 
-    
-        if(props.restaurantdata===undefined){
-            return;
-        }else{
-            return <>
+
+    if (props.restaurantData === undefined) {
+        return;
+    } else {
+        return <>
             <SideBar click={click}>
 
             </SideBar>
@@ -45,7 +45,7 @@ export default function Home(props) {
 
             </Footer>
             <NavBar>
-                {/* Ao clicar em algum tipo de comida deve-se guardar o nome do tipo de comida em um estado. Daí em <Section/> deve-se fazer um filter do props.restaurantdata.typeOfFood comparando como estado */}
+                {/* Ao clicar em algum tipo de comida deve-se guardar o nome do tipo de comida em um estado. Daí em <Section/> deve-se fazer um filter do props.restaurantData.typeOfFood comparando como estado */}
                 <p>Todos</p>
                 <p>Japonesa</p>
                 <p>Brasileira</p>
@@ -56,15 +56,15 @@ export default function Home(props) {
             </NavBar>
             <Section>
                 {/* para filtrar os restaurantes pelo tipo de comida misturar filter com map */}
-                {props.restaurantdata?.length !== 0 ? props.restaurantdata.map(r => {return <Restaurant className='teste'  img={r.smallImages[0]} typeOfFood={r.typeOfFood} name={r.name} setRestaurantChoosed={props.setRestaurantChoosed}></Restaurant>}) : ''}
+                {props.restaurantData?.length !== 0 ? props.restaurantData.map(r => { return <Restaurant className='teste' img={r.smallImages[0]} typeOfFood={r.typeOfFood} name={r.name} setRestaurantChoosed={props.setRestaurantChoosed}></Restaurant> }) : ''}
 
-                
+
 
             </Section>
         </>
-        }
-        
-    
+    }
+
+
 }
 
 //  <Animated
