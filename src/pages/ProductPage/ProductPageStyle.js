@@ -225,7 +225,7 @@ export const DescriptionTitle = styled.div`
     align-items: center;
     transition: all 0.5s;
 
-    @media (max-width: 320px) {
+    @media (max-width: 345px) {
         flex-direction: column;
         gap: 15px;
         max-width: 180px;

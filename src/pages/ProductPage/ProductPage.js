@@ -26,9 +26,9 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
     const [userDescription, setUserDescription] = useState("")
 
     //! Temporario - debug 
-    const exampleUrl = "http://localhost:5000/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
+    const exampleUrl = "https://idrive-back.onrender.com/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
     const exampleToken = "Bearer 84101767-d4fc-451f-b0e2-73d6a546573c"
-    const restaurantUrl = "http://localhost:5000/restaurants"
+    const restaurantUrl = "https://idrive-back.onrender.com/restaurants"
 
     useEffect(() => async () => {
 
@@ -153,6 +153,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                     <DescriptionWrapper>
                         <DescriptionTitle>
                             <p>Deseja adicionar alguma observação?</p>
+                            <div>
                             <BsFillCheckCircleFill
                                 onClick={() => {
                                     if (userWantsDescription) setUserDescription("")
@@ -170,10 +171,10 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                                 }}
                                 color={!userWantsDescription ? "#e35219" : ""}
                                 style={!userWantsDescription ? checkerStyle2 : {
-                                    transition: "all 0.2s",
-                                    marginLeft: "5px"
+                                    transition: "all 0.2s"
                                 }}
                             />
+                            </div>
                         </DescriptionTitle>
                         <DescriptionTextArea
                             disabled={!userWantsDescription}
