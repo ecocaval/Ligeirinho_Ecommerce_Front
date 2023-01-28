@@ -171,7 +171,8 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                                 }}
                                 color={!userWantsDescription ? "#e35219" : ""}
                                 style={!userWantsDescription ? checkerStyle2 : {
-                                    transition: "all 0.2s"
+                                    transition: "all 0.2s",
+                                    marginLeft: "5px"
                                 }}
                             />
                             </div>
