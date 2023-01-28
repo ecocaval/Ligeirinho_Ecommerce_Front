@@ -14,6 +14,7 @@ export default function Header(props) {
             </Left>
             {/* <img src={'./assets/img/papaleguas.gif'}></img> */}
             <p className='animated-header'>BipBip!</p>
+            
         </Cabecalho>
     )
 }

@@ -48,7 +48,7 @@ width: 100%;
 display:flex;
 justify-content: center;
 align-items: center;
-font-family: 'Raleway';
+font-family: 'Barlow Condensed';
     font-style: normal;
     font-weight: 600;
     background-color: #aca69e;
@@ -65,7 +65,7 @@ height: 25%;
 display:flex;
 justify-content: center;
 align-items: center;
-font-family: 'Raleway';
+font-family: 'Barlow Condensed';
     font-style: normal;
     font-weight: 600;
     animation: typing 1s steps(40, end);
@@ -91,8 +91,8 @@ export const Price = styled.div`
     width: 100%;
     display:flex;
 justify-content: center;
+font-family: 'Barlow Condensed';
 align-items: center;
-font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
 `

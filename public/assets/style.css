@@ -1,12 +1,31 @@
 .papaleguas {
-    animation: go-back 5s infinite linear;
+
+  animation: slide-in 5s linear infinite;
+  position: relative; 
+}
+  
+  
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-100vh); /* começa fora da tela à esquerda */
+    }
+    100% {
+      transform: translateX(100vh); /* move para a direita e sai da tela */
+    }
+  }
+
+  .papaleguasheader {
+    transform: scaleX(-1);
+    animation: slide-back 5s linear infinite;
+    animation-delay: 5s;
+  position: relative; 
   }
   
-  @keyframes go-back {
-    from {
-      transform: translateX(-100px);
+  @keyframes slide-back {
+    0% {
+      transform: translateX(100vh); /* começa fora da tela à esquerda */
     }
-    to {
-      transform: translateX(1000px);
+    100% {
+      transform: translateX(-100vh); /* move para a direita e sai da tela */
     }
   }

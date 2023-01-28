@@ -21,6 +21,7 @@ export const Cabecalho = styled.div`
     }
     
     p   {
+        position: absolute;
         font-family: 'Dosis';
         font-size: 38px;
         color: #FFFFFF;

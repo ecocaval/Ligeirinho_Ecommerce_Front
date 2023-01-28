@@ -11,7 +11,7 @@ import { NavBar } from "./HomeStyle";
 
 export default function Home(props) {
 
-    // console.log(props)
+    console.log(props)
     const [click, setClick] = React.useState(false)
     const config = {
         headers: {
@@ -56,7 +56,7 @@ export default function Home(props) {
             </NavBar>
             <Section>
                 {/* para filtrar os restaurantes pelo tipo de comida misturar filter com map */}
-                {props.restaurantData?.length !== 0 ? props.restaurantData.map(r => { return <Restaurant className='teste' img={r.smallImages[0]} typeOfFood={r.typeOfFood} name={r.name} setRestaurantChoosed={props.setRestaurantChoosed}></Restaurant> }) : ''}
+                {props.restaurantData?.length !== 0 ? props.restaurantData.map(r => { return <Restaurant className='teste' atributo={r} setRestaurantChoosed={props.setRestaurantChoosed}></Restaurant> }) : ''}
 
 
 
