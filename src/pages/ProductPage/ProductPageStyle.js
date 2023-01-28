@@ -225,7 +225,7 @@ export const DescriptionTitle = styled.div`
     align-items: center;
     transition: all 0.5s;
 
-    @media (max-width: 320px) {
+    @media (max-width: 345px) {
         flex-direction: column;
         gap: 15px;
         max-width: 180px;
@@ -251,6 +251,18 @@ export const checkerStyle = {
     }
 }
 
+//* Estilo do Icon ao lado da descrição quando ativo
+export const checkerStyle2 = {
+    transition: "all 0.2s",
+    boxShadow: "0px 0px 15px 0px #e0805a",
+    borderRadius: "12px",
+    marginLeft: "5px",
+
+    ":hover": {
+        cursor: "pointer"
+    }
+}
+
 export const DescriptionTextArea = styled.textarea`
     font-family: 'Barlow Condensed';
     resize: none;
@@ -261,7 +273,7 @@ export const DescriptionTextArea = styled.textarea`
     width: 50%;
     min-width: 250px;
     max-width: 600px;
-    height: ${props => props.userWantsDescription ? "200px" : "0"};
+    height: ${props => props.userWantsDescription ? "130px" : "0"};
     margin: auto;
     transition: all 0.2s ease-out ;
     border: ${props => props.userWantsDescription ? "1px lightgray solid;" : "none"};
@@ -294,7 +306,9 @@ export const SendButtonContainer = styled.button`
     transition: all 0.3s;
 
     &:hover {
+        border-radius: 5px;
         background-color: #805204;
+        width: 150px;
         cursor: pointer;
     }
 `

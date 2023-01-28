@@ -11,13 +11,12 @@ function App() {
 
   const [habilitado, setHabilitado] = React.useState(false)
   const [login, setLogin] = React.useState({ email: '', password: '' })
-  const [dadosusuario, setDadosUsuario] = React.useState()
-  const [restaurantdata, setRestaurantData] = React.useState()
-
+  const [dadosUsuario, setDadosUsuario] = React.useState(null)
+  const [restaurantData, setRestaurantData] = React.useState()
   const [restaurantchoosed, setRestaurantChoosed] = React.useState()
+
   return (
     <Container>
-
       <BrowserRouter>
         <Routes>
 
@@ -27,7 +26,7 @@ function App() {
               setHabilitado={setHabilitado}
               login={login}
               setLogin={setLogin}
-              dadosusuario={dadosusuario}
+              dadosUsuario={dadosUsuario}
               setDadosUsuario={setDadosUsuario} />} />
 
           <Route path="/cadastro" element={
@@ -38,9 +37,9 @@ function App() {
 
           <Route path="/home" element={
             <Home
-              dadosusuario={dadosusuario}
+              dadosUsuario={dadosUsuario}
               setDadosUsuario={setDadosUsuario}
-              restaurantdata={restaurantdata}
+              restaurantData={restaurantData}
               setRestaurantData={setRestaurantData}
               setRestaurantChoosed={setRestaurantChoosed}
             />} />
@@ -49,11 +48,14 @@ function App() {
             <RestaurantDetails restaurantchoosed={restaurantchoosed}
             />} />
 
-          <Route path="/restaurant/product" element={<ProductPage />} />
+          <Route path="/restaurant/product" element={
+            <ProductPage
+              dadosUsuario={dadosUsuario}
+              setDadosUsuario={setDadosUsuario}
+            />} />
 
         </Routes>
       </BrowserRouter>
-
     </Container>
   );
 }

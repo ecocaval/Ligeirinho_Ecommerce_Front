@@ -4,19 +4,18 @@ import Header from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ImageGallery from 'react-image-gallery';
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import { BsFillCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 
 import "react-image-gallery/styles/css/image-gallery.css";
 import {
-    AddButton, BackgroundPrice, BuyWrapper, checkerStyle, DescriptionTextArea,
+    AddButton, BackgroundPrice, BuyWrapper, checkerStyle, checkerStyle2, DescriptionTextArea,
     DescriptionTitle, DescriptionWrapper, DivisionLine, PageWrapper, ProductDescription,
     ProductFlex, ProductImages, ProductPageStyle, ProductPrice, ProductQuantity,
     ProductTitle, QuantityText, QuantityTextContainer, RestaurantInfo, SendButtonContainer,
     StyledMain, SubtractButton
 } from "./ProductPageStyle";
 
-
-export default function ProductPage() {
+export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
     const [productRequested, setProductRequested] = useState({})
     const [productImages, setProductImages] = useState([])
@@ -24,11 +23,12 @@ export default function ProductPage() {
     const [productQuantity, setProductQuantity] = useState(1)
     const [receivedInfo, setReceivedInfo] = useState(false)
     const [userWantsDescription, setUserWantsDescription] = useState(false)
+    const [userDescription, setUserDescription] = useState("")
 
     //! Temporario - debug 
-    const exampleUrl = "http://localhost:5000/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
+    const exampleUrl = "https://idrive-back.onrender.com/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
     const exampleToken = "Bearer 84101767-d4fc-451f-b0e2-73d6a546573c"
-    const restaurantUrl = "http://localhost:5000/restaurants"
+    const restaurantUrl = "https://idrive-back.onrender.com/restaurants"
 
     useEffect(() => async () => {
 
@@ -55,8 +55,37 @@ export default function ProductPage() {
         setReceivedInfo(true)
     }, [])
 
-    function sendOrder() {
-        //* Colocar aqui o post para criar novo carrinho ou put caso carrinho já exista
+    async function sendOrder() {
+
+        let userData = dadosUsuario
+
+        if (!dadosUsuario) {
+            const localStorageUserData = JSON.parse(localStorage.getItem('userInfo'))
+            setDadosUsuario(localStorageUserData)
+            userData = localStorageUserData
+        }
+        const cartRoute = `${process.env.REACT_APP_API_URL}/carts/${userData.userId}`
+
+        const authorization = {
+            headers: {
+                authorization: userData.token
+            }
+        }
+
+        try {
+            await axios.post(cartRoute, {}, authorization)
+
+            await axios.put(cartRoute, {
+                productId: productRequested._id,
+                quantity: productQuantity,
+                description: userDescription
+            }, authorization)
+
+            // navigate('') //! Navegar para a página do carrinho de compras
+        } catch (err) {
+            console.log(err);
+            alert("Houve um erro ao enviar o pedido!")
+        }
     }
 
     return (
@@ -124,24 +153,42 @@ export default function ProductPage() {
                     <DescriptionWrapper>
                         <DescriptionTitle>
                             <p>Deseja adicionar alguma observação?</p>
+                            <div>
                             <BsFillCheckCircleFill
-                                onClick={() => setUserWantsDescription(!userWantsDescription)}
-                                color={userWantsDescription && "#30cf2d"}
+                                onClick={() => {
+                                    if (userWantsDescription) setUserDescription("")
+                                    setUserWantsDescription(!userWantsDescription)
+                                }}
+                                color={userWantsDescription ? "#30cf2d" : ""}
                                 style={userWantsDescription ? checkerStyle : {
                                     transition: "all 0.2s"
                                 }}
                             />
+                            <BsXCircleFill
+                                onClick={() => {
+                                    if (userWantsDescription) setUserDescription("")
+                                    setUserWantsDescription(!userWantsDescription)
+                                }}
+                                color={!userWantsDescription ? "#e35219" : ""}
+                                style={!userWantsDescription ? checkerStyle2 : {
+                                    transition: "all 0.2s",
+                                    marginLeft: "5px"
+                                }}
+                            />
+                            </div>
                         </DescriptionTitle>
                         <DescriptionTextArea
                             disabled={!userWantsDescription}
                             userWantsDescription={userWantsDescription}
+                            placeholder={userWantsDescription ? "Escreva sua descrição..." : ""}
                             type="text"
-                            placeholder={userWantsDescription && "Escreva sua descrição..."}
+                            value={userDescription}
+                            onChange={(e) => setUserDescription(e.currentTarget.value)}
                         />
                     </DescriptionWrapper>
                     <SendButtonContainer
                         userWantsDescription={userWantsDescription}
-                        onclick={() => sendOrder()}
+                        onClick={() => sendOrder()}
                     >
                         Enviar Pedido
                     </SendButtonContainer>
