@@ -75,12 +75,6 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
         try {
             await axios.post(cartRoute, {}, authorization)
 
-            console.log({
-                productId: productRequested._id,
-                quantity: productQuantity,
-                description: userDescription
-            });
-
             await axios.put(cartRoute, {
                 productId: productRequested._id,
                 quantity: productQuantity,
