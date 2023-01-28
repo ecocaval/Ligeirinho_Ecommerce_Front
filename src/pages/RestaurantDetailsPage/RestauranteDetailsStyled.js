@@ -36,10 +36,11 @@ export const Products = styled.div`
 export const Product = styled.div`
     height: 100%;
     min-width: 150px;
-    border: 2px black solid;
+    border: 0px black solid;
     /* background-color: red; */
     margin-right: 5px;
     padding: 2px;
+    border-right: 1px solid #00000059;
 `
 export const Category = styled.div`
 height: 30px;
@@ -50,7 +51,8 @@ align-items: center;
 font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
-    background-color: #ff8d00;
+    background-color: #aca69e;
+    color:white;
 `
 export const Image = styled.img`
     height: 60%;
@@ -66,7 +68,24 @@ align-items: center;
 font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
+    animation: typing 1s steps(40, end);
+    @keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+span{
+    animation-delay: 1s;
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+}
 `
+
+
+
 export const Price = styled.div`
  height: 15%;
     width: 100%;
