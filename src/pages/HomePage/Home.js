@@ -1,7 +1,7 @@
 // import { Animated } from "react-animated-css";
 import Header from "../../components//Header/Header"
 import Footer from "../../components/Footer/Footer"
-import React, { useEffect } from "react"
+import React from "react"
 import Restaurant from "../../components/Restaurant/Restaurant";
 import { OutSideBar, Section, SideBar } from "./HomeStyle";
 import axios from "axios";
@@ -10,12 +10,6 @@ import { Link } from "react-router-dom";
 import { NavBar } from "./HomeStyle";
 
 export default function Home(props) {
-
-    useEffect(() => {
-        if (!props.dadosUsuario) {
-            props.setDadosUsuario(localStorage.getItem('userInfo'))
-        }
-    }, [props.dadosUsuario])
 
     // console.log(props)
     const [click, setClick] = React.useState(false)
