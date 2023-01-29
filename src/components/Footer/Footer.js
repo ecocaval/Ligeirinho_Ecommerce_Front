@@ -10,7 +10,7 @@ export default function Footer(props) {
         <Rodape>
             <Link to='/home'><AiTwotoneHome className="svg" /></Link>
             <HiMagnifyingGlass className="svg" />
-            <BsBasket className="svg" />
+            <Link to='/cart'><BsBasket className="svg" /></Link>
             <BsPerson className="svg" />
             <img
                 className="papaleguas"

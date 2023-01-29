@@ -14,6 +14,7 @@ import {
     ProductTitle, QuantityText, QuantityTextContainer, RestaurantInfo, SendButtonContainer,
     StyledMain, SubtractButton
 } from "./ProductPageStyle";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
@@ -24,7 +25,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
     const [receivedInfo, setReceivedInfo] = useState(false)
     const [userWantsDescription, setUserWantsDescription] = useState(false)
     const [userDescription, setUserDescription] = useState("")
-
+    const navigate = useNavigate()
     //! Temporario - debug 
     const exampleUrl = "https://idrive-back.onrender.com/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
     const exampleToken = "Bearer 84101767-d4fc-451f-b0e2-73d6a546573c"
@@ -77,7 +78,6 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
         }
 
         try {
-            await axios.post(cartRoute, {}, authorization)
 
             await axios.put(cartRoute, {
                 productId: productRequested._id,
@@ -85,7 +85,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                 description: userDescription
             }, authorization)
 
-            // navigate('') //! Navegar para a página do carrinho de compras
+            navigate('/cart')
         } catch (err) {
             console.log(err);
             alert("Houve um erro ao enviar o pedido!")
