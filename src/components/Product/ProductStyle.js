@@ -14,8 +14,15 @@ export const ProductStyled = styled.div`
     margin: 15px auto;
     height: 200px;
     background-color: #FFFFFF;
-    border: 3px solid #ffaa00;
+    border: 2px solid #ffaa00;
     font-weight: 700; 
+    transition: all 0.4s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #ffaa00;
+        transform: translate(0, -5%);   
+    }
 `
 
 export const ProductImage = styled.figure`
