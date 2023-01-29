@@ -16,7 +16,7 @@ export const StyledMain = styled.main`
     height: calc(100% - 140px);
     z-index: 1;
     padding-bottom: 30px;
-    overflow-y: scroll;
+    overflow-y: auto;
 `
 
 export const ProductFlex = styled.div`

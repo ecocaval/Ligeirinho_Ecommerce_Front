@@ -1,66 +1,139 @@
 import styled from "styled-components"
 
-// asa
 export const RestaurantStyled = styled.div`
     
     margin-bottom: 10px;
     position:relative;
     display:flex;
-    border-radius: 50px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
     padding: 10px;
-    width:100%;
+    width:90%;
+    max-width: 450px;
+    min-width: 300px;
+    margin: 15px auto;
     height: 90px;
-    border: 5px solid #ffaa00;
-    text-align: center;
-    font-family: 'Raleway';
-    font-style: normal;
+    border-bottom: 3px solid #ffaa00;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Barlow Condensed';
     font-weight: 700;
-    line-height: 18px;
-    color: #ffae00;
+    transition: all 0.3s ease-in-out;
+
+    @media (max-width: 1100px) {
+        margin-right: 0;
+        margin: 15px auto;
+    }
+
+    @media (max-width: 320px) {
+        width:50%;
+        min-width: 110px;
+        flex-direction: column;
+        height: 200px;
+
+        main {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover {
+        .restaurant-wrapper { 
+            transform: translate(20%,0);
+            
+            @media (max-width: 320px) {
+                transform: translate(0,0);
+            }
+        }
+        background-color: #EFEFEF;
+        cursor: pointer;
+
+    }
 
     .divHeart{
         width: 20px;
     }
-    .heart{
-        pointer-events: all;
-        /* background-color: #ffaa00; */
-        color:red;
-        position: absolute;
-        right: 30px;
-        top:25%;
-        font-size: 30px;
-        pointer-events: none;
-        z-index: 4;
+
+    .restaurant-wrapper {
+        transition: all 0.3s;
     }
+    
+    .heart{
+        color:red;
+        margin-right: 30px;
+        font-size: 30px;
+        z-index: 2;
+        transition: all 0.1s ease-in-out;
+
+        @media (max-width: 320px) {
+            margin-right: 0;
+        }
+    }
+
+    .heart-mini{
+        color:gray;
+        margin-right: 35px;
+        font-size: 20px;
+        z-index: 2;
+        transition: all 0.1s ease-in-out;
+
+        @media (max-width: 320px) {
+            margin-right: 0;
+        }
+    }
+    
     .star{
         display: flex;
+        align-items: center;
         margin-top: 5px;
+
+        @media (max-width: 320px) {
+            justify-content: center;
+        }
+
         p{
             font-size: 11px;
+            margin-right: 3px;
             color: #000000;
         }
         .svg{
             height: 21px;
             color: #000000;
+        }
     }
-}
+
     img{
         object-fit: cover;
-        height: 100%;
-        width: 20%;
-        border-radius: 50% 0 0 50%;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+
+        @media (max-width: 320px) {
+            margin: auto;
+            margin-top: 10px;
+        }
     }
 
     .description { 
-        /* width: 80%; */
-        margin-left:10%;
+        margin-left:15%;
         flex-direction: column;
         justify-content: flex-start;
         display: flex;
         align-items: baseline;
+        transition: all 0.3s;
+
+        @media (max-width: 320px) {
+            margin-left: 0;    
+            justify-content: center;
+        }
+
         h1{
-            /* overflow-x: auto; */
-            /* max-width: 70%; */
+            color: #242b36;
             font-size: 18px;
             
         }
