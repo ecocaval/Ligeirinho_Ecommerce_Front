@@ -14,6 +14,7 @@ export default function RestaurantDetails(props) {
     const navigate=useNavigate();
     console.log(props)
     const [products, setProducts] = React.useState()
+
     const config = {
         headers: {
             Authorization: props.dadosUsuario.token
@@ -33,16 +34,52 @@ export default function RestaurantDetails(props) {
                 <h3 className="animated-text">{props.restaurantchoosed.name}</h3>
                 <div className="star"><p>{props.restaurantchoosed.priceRank}</p><AiFillStar className="svg"></AiFillStar></div>
                 <BsHeartFill className="heart"></BsHeartFill>
-
-
             </NavBar>
             <Section>
-
                 <Banner>
-                    <img src={props.restaurantchoosed.bigImages[0]}></img>
+                    <img src={props.restaurantchoosed.img}></img>
                 </Banner>
                 {/* fazer uma requisição get para os produtos do restaurante(/restaurants/:restaurantId/products). Espero receber imagem, preço, descrição e id pelo menos 
                 logo dps fazer um map na lista q vou receber e renderizar os elementos abaixo*/}
+                {/* {props.restaurantchoosed.categories.map(c => { */}
+                
+                <SectionProduct>
+                    <Category>haha</Category>
+                    <Products>
+                    <Product onClick={() => {
+                        props.setIdProduct('produto.id')
+                        navigate(`/restaurant/${props.restaurantchoosed.id}/product/`)
+                    }}>
+                        <Image src={props.restaurantchoosed.img} ></Image>
+                        <Description>BIG MAC</Description>
+                        <Price>R$ 12,99</Price>
+                    </Product>
+                    <Product>
+                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Description>BIG MAC</Description>
+                        <Price>R$ 12,99</Price>
+                    </Product>
+                    <Product>
+                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Description>BIG MAC</Description>
+                        <Price>R$ 12,99</Price>
+                    </Product>
+                    <Product>
+                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Description>BIG MAC</Description>
+                        <Price>R$ 12,99</Price>
+                    </Product>
+                    
+                </Products>
+                </SectionProduct>      
+                {/* }
+             )}          
+                 */}
+                
+                
+                
+                
+                
                 <SectionProduct>
                     <Category>BURGUERS</Category>
                 <Products>
@@ -50,22 +87,22 @@ export default function RestaurantDetails(props) {
                         props.setIdProduct('produto.id')
                         navigate('/restaurant/product')
                     }}>
-                        <Image src={props.restaurantchoosed.smallImages[0]} ></Image>
+                        <Image src={props.restaurantchoosed.img} ></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
@@ -76,27 +113,27 @@ export default function RestaurantDetails(props) {
                     <Category>SORVETES</Category>
                 <Products>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
@@ -108,22 +145,22 @@ export default function RestaurantDetails(props) {
                     <Category>BURGUERS</Category>
                 <Products>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
+                        <Image src={props.restaurantchoosed.img}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>

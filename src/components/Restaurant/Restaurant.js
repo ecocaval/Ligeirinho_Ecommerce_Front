@@ -2,14 +2,14 @@
 import { RestaurantStyled } from "./RestaurantStyle";
 import React from "react";
 import { AiFillStar } from 'react-icons/ai';
-import {BsHeartFill} from 'react-icons/bs'
-import {BsHeart} from 'react-icons/bs'
 import { useNavigate } from "react-router-dom";
 
 export default function Restaurant(props) {
     console.log(props)
     const [clicked, setClicked] = React.useState(false)
-    const navigate=useNavigate()
+    const restauranttName = props.name
+    const navigate = useNavigate()
+
     return (
         <>
             <RestaurantStyled onClick={() => {

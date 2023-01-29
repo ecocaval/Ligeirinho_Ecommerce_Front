@@ -14,8 +14,11 @@ import {
     ProductTitle, QuantityText, QuantityTextContainer, RestaurantInfo, SendButtonContainer,
     StyledMain, SubtractButton
 } from "./ProductPageStyle";
+import { useParams } from "react-router-dom";
 
 export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
+
+    const {productId, restaurantId} = useParams()
 
     const [productRequested, setProductRequested] = useState({})
     const [productImages, setProductImages] = useState([])
@@ -25,16 +28,19 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
     const [userWantsDescription, setUserWantsDescription] = useState(false)
     const [userDescription, setUserDescription] = useState("")
 
-    //! Temporario - debug 
-    const exampleUrl = "https://idrive-back.onrender.com/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
-    const exampleToken = "Bearer 84101767-d4fc-451f-b0e2-73d6a546573c"
-    const restaurantUrl = "https://idrive-back.onrender.com/restaurants"
+    const productUrl = `${process.env.REACT_APP_API_URL}/restaurants/${restaurantId}/products/${productId}`
+    const userToken = dadosUsuario.token
+    const restaurantUrl = `${process.env.REACT_APP_API_URL}/restaurants`
 
-    useEffect(() => async () => {
+    useEffect(() => {
+        getProductInfo()
+    }, [])
 
-        let getResponse = await axios.get(exampleUrl, {
+    async function getProductInfo() {
+
+        let getResponse = await axios.get(productUrl, {
             headers: {
-                authorization: exampleToken
+                authorization: userToken
             }
         })
         const product = getResponse.data
@@ -44,7 +50,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
         getResponse = await axios.get(`${restaurantUrl}/${product.restaurantId}`, {
             headers: {
-                authorization: exampleToken
+                authorization: userToken
             }
         })
         const restaurant = getResponse.data
@@ -53,7 +59,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
         setRestaurantRequested(restaurant)
         setProductRequested(product)
         setReceivedInfo(true)
-    }, [])
+    }
 
     async function sendOrder() {
 
@@ -64,6 +70,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
             setDadosUsuario(localStorageUserData)
             userData = localStorageUserData
         }
+        
         const cartRoute = `${process.env.REACT_APP_API_URL}/carts/${userData.userId}`
 
         const authorization = {
@@ -154,27 +161,27 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                         <DescriptionTitle>
                             <p>Deseja adicionar alguma observação?</p>
                             <div>
-                            <BsFillCheckCircleFill
-                                onClick={() => {
-                                    if (userWantsDescription) setUserDescription("")
-                                    setUserWantsDescription(!userWantsDescription)
-                                }}
-                                color={userWantsDescription ? "#30cf2d" : ""}
-                                style={userWantsDescription ? checkerStyle : {
-                                    transition: "all 0.2s"
-                                }}
-                            />
-                            <BsXCircleFill
-                                onClick={() => {
-                                    if (userWantsDescription) setUserDescription("")
-                                    setUserWantsDescription(!userWantsDescription)
-                                }}
-                                color={!userWantsDescription ? "#e35219" : ""}
-                                style={!userWantsDescription ? checkerStyle2 : {
-                                    transition: "all 0.2s",
-                                    marginLeft: "5px"
-                                }}
-                            />
+                                <BsFillCheckCircleFill
+                                    onClick={() => {
+                                        if (userWantsDescription) setUserDescription("")
+                                        setUserWantsDescription(!userWantsDescription)
+                                    }}
+                                    color={userWantsDescription ? "#30cf2d" : ""}
+                                    style={userWantsDescription ? checkerStyle : {
+                                        transition: "all 0.2s"
+                                    }}
+                                />
+                                <BsXCircleFill
+                                    onClick={() => {
+                                        if (userWantsDescription) setUserDescription("")
+                                        setUserWantsDescription(!userWantsDescription)
+                                    }}
+                                    color={!userWantsDescription ? "#e35219" : ""}
+                                    style={!userWantsDescription ? checkerStyle2 : {
+                                        transition: "all 0.2s",
+                                        marginLeft: "5px"
+                                    }}
+                                />
                             </div>
                         </DescriptionTitle>
                         <DescriptionTextArea
