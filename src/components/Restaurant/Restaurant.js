@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
 export default function Restaurant(props) {
+    console.log(props)
     const [clicked, setClicked] = React.useState(false)
     const navigate = useNavigate()
 

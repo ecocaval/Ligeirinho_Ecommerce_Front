@@ -14,7 +14,7 @@ function App() {
   const [dadosUsuario, setDadosUsuario] = React.useState(null)
   const [restaurantData, setRestaurantData] = React.useState()
   const [restaurantchoosed, setRestaurantChoosed] = React.useState()
-
+  const [idproduct, setIdProduct] =  React.useState()
   return (
     <Container>
       <BrowserRouter>
@@ -45,13 +45,18 @@ function App() {
             />} />
 
           <Route path="/restaurant" element={
-            <RestaurantDetails restaurantchoosed={restaurantchoosed}
+            <RestaurantDetails 
+            restaurantchoosed={restaurantchoosed}
+            setRestaurantChoosed={setRestaurantChoosed}
+            setIdProduct={setIdProduct}
+            dadosUsuario={dadosUsuario}
             />} />
 
           <Route path="/restaurant/:restaurantId/product/:productId" element={
             <ProductPage
               dadosUsuario={dadosUsuario}
               setDadosUsuario={setDadosUsuario}
+              idproduct={idproduct}
             />} />
 
         </Routes>
