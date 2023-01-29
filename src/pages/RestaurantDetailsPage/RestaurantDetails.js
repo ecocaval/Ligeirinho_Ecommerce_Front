@@ -10,8 +10,10 @@ import React from "react";
 import axios from "axios";
 
 export default function RestaurantDetails(props) {
-    console.log(props)
+    // console.log(props)
+
     const [products, setProducts] = React.useState()
+
     const config = {
         headers: {
             Authorization: props.dadosUsuario.token
@@ -19,7 +21,7 @@ export default function RestaurantDetails(props) {
     }
     React.useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed.id}`, config).then(resp => {
-           console.log(props)
+        //    console.log(props)
         })
 
     }, [])
@@ -31,8 +33,6 @@ export default function RestaurantDetails(props) {
                 <h3 className="animated-text">{props.restaurantchoosed.name}</h3>
                 <div className="star"><p>4,5</p><AiFillStar className="svg"></AiFillStar></div>
                 <BsHeartFill className="heart"></BsHeartFill>
-
-
             </NavBar>
             <Section>
 

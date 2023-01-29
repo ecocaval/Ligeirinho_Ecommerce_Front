@@ -12,15 +12,15 @@ export default function Footer(props) {
             <HiMagnifyingGlass className="svg" />
             <BsBasket className="svg" />
             <BsPerson className="svg" />
-            <img
-                className="papaleguas"
+            {/* <img
+                // className="papaleguas"
                 onClick={() => {
                     const audio = new Audio('./assets/audios/papaleguas.mp3')
                     audio.play();
                 }}
                 src={'./assets/img/papaleguas.gif'}
                 alt=""
-            />
+            /> */}
         </Rodape>
     )
 }
