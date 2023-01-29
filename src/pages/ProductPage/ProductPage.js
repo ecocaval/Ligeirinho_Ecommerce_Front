@@ -14,16 +14,12 @@ import {
     ProductTitle, QuantityText, QuantityTextContainer, RestaurantInfo, SendButtonContainer,
     StyledMain, SubtractButton
 } from "./ProductPageStyle";
-<<<<<<< HEAD
-import { useNavigate } from "react-router-dom";
-=======
-import { useParams } from "react-router-dom";
->>>>>>> 5ebab8050140b983ac98c146ee827c4df9a7bf7e
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
     const {productId, restaurantId} = useParams()
-
+    const navigate = useNavigate()
     const [productRequested, setProductRequested] = useState({})
     const [productImages, setProductImages] = useState([])
     const [restaurantRequested, setRestaurantRequested] = useState({})
@@ -31,18 +27,10 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
     const [receivedInfo, setReceivedInfo] = useState(false)
     const [userWantsDescription, setUserWantsDescription] = useState(false)
     const [userDescription, setUserDescription] = useState("")
-<<<<<<< HEAD
-    const navigate = useNavigate()
-    //! Temporario - debug 
-    const exampleUrl = "https://idrive-back.onrender.com/restaurants/63d30f2494d5e0d0a25d2c99/products/63d3129594d5e0d0a25d2ca9"
-    const exampleToken = "Bearer 84101767-d4fc-451f-b0e2-73d6a546573c"
-    const restaurantUrl = "https://idrive-back.onrender.com/restaurants"
-=======
 
     const productUrl = `${process.env.REACT_APP_API_URL}/restaurants/${restaurantId}/products/${productId}`
     const userToken = dadosUsuario.token
     const restaurantUrl = `${process.env.REACT_APP_API_URL}/restaurants`
->>>>>>> 5ebab8050140b983ac98c146ee827c4df9a7bf7e
 
     useEffect(() => {
         getProductInfo()
