@@ -18,8 +18,6 @@ export default function RestaurantDetails(props) {
                 <h3 className="animated-text">{props.restaurantchoosed.name}</h3>
                 <div className="star"><p>4,5</p><AiFillStar className="svg"></AiFillStar></div>
                 <BsHeartFill className="heart"></BsHeartFill>
-
-
             </NavBar>
             <Section>
 

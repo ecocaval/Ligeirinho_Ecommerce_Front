@@ -48,7 +48,7 @@ function App() {
             <RestaurantDetails restaurantchoosed={restaurantchoosed}
             />} />
 
-          <Route path="/restaurant/product" element={
+          <Route path="/restaurant/:restaurantId/product/:productId" element={
             <ProductPage
               dadosUsuario={dadosUsuario}
               setDadosUsuario={setDadosUsuario}
