@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-// asa
 export const RestaurantStyled = styled.div`
     
     margin-bottom: 10px;
@@ -45,7 +44,11 @@ export const RestaurantStyled = styled.div`
 
     &:hover {
         .restaurant-wrapper { 
-            margin-left:8%;
+            transform: translate(20%,0);
+            
+            @media (max-width: 320px) {
+                transform: translate(0,0);
+            }
         }
         background-color: #EFEFEF;
         cursor: pointer;
@@ -65,7 +68,7 @@ export const RestaurantStyled = styled.div`
         margin-right: 30px;
         font-size: 30px;
         z-index: 2;
-        transition: all 0.2s;
+        transition: all 0.1s ease-in-out;
 
         @media (max-width: 320px) {
             margin-right: 0;
@@ -77,7 +80,7 @@ export const RestaurantStyled = styled.div`
         margin-right: 35px;
         font-size: 20px;
         z-index: 2;
-        transition: all 0.2s;
+        transition: all 0.1s ease-in-out;
 
         @media (max-width: 320px) {
             margin-right: 0;
@@ -117,7 +120,6 @@ export const RestaurantStyled = styled.div`
     }
 
     .description { 
-        /* width: 80%; */
         margin-left:15%;
         flex-direction: column;
         justify-content: flex-start;
@@ -131,8 +133,6 @@ export const RestaurantStyled = styled.div`
         }
 
         h1{
-            /* overflow-x: auto; */
-            /* max-width: 70%; */
             color: #242b36;
             font-size: 18px;
             

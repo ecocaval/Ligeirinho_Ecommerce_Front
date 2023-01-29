@@ -21,7 +21,7 @@ export const ProductStyled = styled.div`
     &:hover {
         cursor: pointer;
         background-color: #ffaa00;
-        transform: translate(0, -5%);   
+        transform: translate(0, -5%);
     }
 `
 
@@ -42,7 +42,7 @@ export const ProductImage = styled.figure`
 `
 
 export const ProductInfo = styled.div`
-    /* background-color: red; */
+
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -70,6 +70,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
             setDadosUsuario(localStorageUserData)
             userData = localStorageUserData
         }
+        
         const cartRoute = `${process.env.REACT_APP_API_URL}/carts/${userData.userId}`
 
         const authorization = {

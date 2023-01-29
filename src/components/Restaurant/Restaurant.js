@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
 export default function Restaurant(props) {
-    // console.log(props)
+
     const [clicked, setClicked] = React.useState(false)
+    const restauranttName = props.name
     const navigate = useNavigate()
 
     return (
@@ -19,10 +20,10 @@ export default function Restaurant(props) {
                 <main className='restaurant-wrapper'>
                     <img src={props.img} alt="" />
                     <div className="description">
-                        <h1>{props.name}</h1>
+                        <h1>{restauranttName}</h1>
                         <div className="star">
                             <h2>{props.typeOfFood}</h2>
-                            <p>4,5</p>
+                            <p>5,0</p>
                             <AiFillStar className="svg" />
                         </div>
                     </div>
@@ -33,7 +34,7 @@ export default function Restaurant(props) {
                         e.stopPropagation()
                         setClicked(!clicked)
                     }}>
-                        <FaHeart className="heart" />
+                        <FaHeart className="heart"/>
                     </div>
                     :
                     <div onClick={(e) => {

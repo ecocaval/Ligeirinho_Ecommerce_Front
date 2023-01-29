@@ -12,7 +12,6 @@ export default function Product(props) {
             <ProductStyled onClick={() => {
                 navigate(`/restaurant/${restaurantId}/product/${productId}`)
             }}>
-                {/* Todos estes dados abaixo virão da API. pegar as props que virão e colocar nas devidas informações */}
                 <ProductImage>
                     <img src={props.img} alt="" />
                 </ProductImage>
