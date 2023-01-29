@@ -21,7 +21,7 @@ export default function Restaurant(props) {
                 <img src={props.atributo.smallImages[0]} alt="" />
                 <div className="description">
                 <h1>{props.atributo.name}</h1>
-                <div className="star"><h2>{props.atributo.typeOfFood}</h2><p>4,5</p><AiFillStar className="svg"></AiFillStar></div>
+                <div className="star"><h2>{props.atributo.typeOfFood}</h2><p>{props.atributo.priceRank}</p><AiFillStar className="svg"></AiFillStar></div>
                     
                   
                     

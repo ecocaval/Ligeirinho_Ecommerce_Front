@@ -43,6 +43,24 @@ export const Product = styled.div`
     border-right: 1px solid #00000059;
 `
 export const Category = styled.div`
+ animation: color-change 4s infinite;
+ @keyframes color-change {
+  0% {
+    background-color: #ff8d00;
+  }
+  25% {
+    background-color: gray;
+  }
+  50% {
+    background-color:#ff8d00;
+  }
+  75% {
+    background-color: gray;
+  }
+  100% {
+    background-color: #ff8d00;
+  }
+}
 height: 30px;
 width: 100%;
 display:flex;

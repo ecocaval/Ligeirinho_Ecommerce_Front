@@ -10,7 +10,7 @@ export const RestaurantStyled = styled.div`
     padding: 10px;
     width:100%;
     height: 90px;
-    border: 5px solid #ffaa00;
+    border-bottom: 3px solid #ffaa00;
     text-align: center;
     font-family: 'Raleway';
     font-style: normal;

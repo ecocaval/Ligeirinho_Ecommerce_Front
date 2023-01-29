@@ -8,8 +8,10 @@ import { Banner, Category, Product, SectionProduct, Image, Description, Price } 
 import { Products } from "./RestauranteDetailsStyled";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 export default function RestaurantDetails(props) {
+    const navigate=useNavigate();
     console.log(props)
     const [products, setProducts] = React.useState()
     const config = {
@@ -29,7 +31,7 @@ export default function RestaurantDetails(props) {
             <NavBar>
                 {/* <img src={props.restaurantchoosed.img}></img> */}
                 <h3 className="animated-text">{props.restaurantchoosed.name}</h3>
-                <div className="star"><p>4,5</p><AiFillStar className="svg"></AiFillStar></div>
+                <div className="star"><p>{props.restaurantchoosed.priceRank}</p><AiFillStar className="svg"></AiFillStar></div>
                 <BsHeartFill className="heart"></BsHeartFill>
 
 
@@ -46,7 +48,7 @@ export default function RestaurantDetails(props) {
                 <Products>
                     <Product onClick={() => {
                         props.setIdProduct('produto.id')
-
+                        navigate('/restaurant/product')
                     }}>
                         <Image src={props.restaurantchoosed.smallImages[0]} ></Image>
                         <Description>BIG MAC</Description>
