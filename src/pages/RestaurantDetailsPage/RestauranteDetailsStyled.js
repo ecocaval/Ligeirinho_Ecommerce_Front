@@ -21,6 +21,7 @@ export const SectionProduct = styled.div`
     justify-content: flex-start;
     align-items: center;
     margin-top:10px;
+    padding: 5px;
 `
 
 export const Products = styled.div`
@@ -41,6 +42,7 @@ export const Product = styled.div`
     margin-right: 5px;
     padding: 2px;
     border-right: 1px solid #00000059;
+   
 `
 export const Category = styled.div`
  animation: color-change 4s infinite;
@@ -76,6 +78,7 @@ export const Image = styled.img`
     height: 60%;
     width: 100%;
     object-fit: cover;
+    border-radius: 10px;
 `
 export const Description = styled.div`
 height: 25%;

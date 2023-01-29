@@ -166,6 +166,8 @@ export default function Home(props) {
                                     img={r.smallImages[0]}
                                     typeOfFood={r.typeOfFood}
                                     name={r.name}
+                                    priceRank={r.priceRank}
+                                    // categories={r.categories}
                                     setRestaurantData={props.setRestaurantData}
                                     setRestaurantChoosed={props.setRestaurantChoosed}
                                 >
