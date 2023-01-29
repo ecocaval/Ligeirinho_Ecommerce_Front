@@ -6,10 +6,23 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsHeartFill } from 'react-icons/bs';
 import { Banner, Category, Product, SectionProduct, Image, Description, Price } from "./RestauranteDetailsStyled";
 import { Products } from "./RestauranteDetailsStyled";
+import React from "react";
+import axios from "axios";
 
 export default function RestaurantDetails(props) {
-    // console.log(props)
+    console.log(props)
+    const [products, setProducts] = React.useState()
+    const config = {
+        headers: {
+            Authorization: props.dadosUsuario.token
+        }
+    }
+    React.useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed.id}`, config).then(resp => {
+           console.log(props)
+        })
 
+    }, [])
     return (
         <>
             <Header></Header>
@@ -24,28 +37,33 @@ export default function RestaurantDetails(props) {
             <Section>
 
                 <Banner>
-                    <img src={props.restaurantchoosed.img}></img>
+                    <img src={props.restaurantchoosed.bigImages[0]}></img>
                 </Banner>
+                {/* fazer uma requisição get para os produtos do restaurante(/restaurants/:restaurantId/products). Espero receber imagem, preço, descrição e id pelo menos 
+                logo dps fazer um map na lista q vou receber e renderizar os elementos abaixo*/}
                 <SectionProduct>
                     <Category>BURGUERS</Category>
                 <Products>
-                    <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                    <Product onClick={() => {
+                        props.setIdProduct('produto.id')
+
+                    }}>
+                        <Image src={props.restaurantchoosed.smallImages[0]} ></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
@@ -56,27 +74,27 @@ export default function RestaurantDetails(props) {
                     <Category>SORVETES</Category>
                 <Products>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>Sundae</Description>
                         <Price>R$ 11,99</Price>
                     </Product>
@@ -88,22 +106,22 @@ export default function RestaurantDetails(props) {
                     <Category>BURGUERS</Category>
                 <Products>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
                     <Product>
-                        <Image src={props.restaurantchoosed.img}></Image>
+                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
                         <Description>BIG MAC</Description>
                         <Price>R$ 12,99</Price>
                     </Product>
