@@ -22,7 +22,7 @@ export default function Restaurant(props) {
                         <h1>{props.restaurant.name}</h1>
                         <div className="star">
                             <h2>{props.restaurant.typeOfFood}</h2>
-                            <p>{props.restaurant.priceRank}</p>
+                            <p>{props.restaurant.priceRank.toFixed(1)}</p>
                             <AiFillStar className="svg" />
                         </div>
                     </div>
