@@ -4,6 +4,19 @@ export const HomePageWrapper = styled.div`
     font-family: 'Barlow Condensed';
 `
 
+export const HomeSection = styled.div`
+    top:105px;
+    position: fixed;
+    height: calc(100% - 175px);
+    display: flex;
+    width: 100%;
+    z-index: 0;
+    overflow-y:auto;
+    a{
+        text-decoration: none;
+    }
+`
+
 export const Section = styled.div`
     top:105px;
     position: fixed;
@@ -18,10 +31,59 @@ export const Section = styled.div`
     }
 `
 
-export const NavBar = styled.nav`
-    p{
-        margin-left:10px;
+export const HomeNavBar = styled.nav`
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top:70px;
+    height: 35px;
+    width: 100%;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
+
+    h3  {
+        font-weight: 600;
+        margin-right: 10px;
+        text-align: center;
+        
     }
+    .svg{   
+        color:black;
+    }
+    .star{
+        display:flex;
+    }
+    .heart{
+        position:absolute;
+        right: 0;
+        margin-right: 10px;
+    }
+
+
+    .animated-text {
+    animation: animation-title 3s ease-in-out forwards;
+    position: absolute;
+    left: -100%;
+    opacity: 0;
+    }
+
+    @keyframes animation-title {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    }
+`
+
+export const NavBar = styled.nav`
+
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -42,7 +104,6 @@ export const NavBar = styled.nav`
     }
     .star{
         display:flex;
-        margin-left: 10px;
     }
     .heart{
         position:absolute;

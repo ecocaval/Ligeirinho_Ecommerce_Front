@@ -9,12 +9,13 @@ import { Products } from "./RestauranteDetailsStyled";
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function RestaurantDetails(props) {
     const navigate = useNavigate();
-    console.log(props.restaurantchoosed)
+   
     const [products, setProducts] = React.useState()
-    console.log(products)
+    
     const config = {
         headers: {
             Authorization: props.dadosUsuario.token
@@ -23,7 +24,7 @@ export default function RestaurantDetails(props) {
     React.useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed._id}/products`, config).then(resp => {
             setProducts(resp.data)
-            console.log(resp.data)
+            
         })
 
     }, [])
@@ -63,7 +64,7 @@ export default function RestaurantDetails(props) {
                                         </Product>
                                     ))
                             ) : (
-                                <p>Não há produtos para exibir</p>
+                                <div  className="loader"><ThreeDots></ThreeDots></div>
                             )}
                         </Products>
                     </SectionProduct>
