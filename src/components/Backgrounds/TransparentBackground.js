@@ -13,6 +13,9 @@ export default function TransparentBackground() {
 
 const TranparentBackground = styled.div`
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    opacity: 0.15;
+    opacity: 0.25;
 `

@@ -22,10 +22,9 @@ export const Cabecalho = styled.div`
     
     p   {
         position: absolute;
-        font-family: 'Dosis';
+        font-family: 'Playball';
         font-size: 38px;
         color: #FFFFFF;
-        margin-bottom: 10px;
     }
 
     img {
@@ -52,7 +51,7 @@ export const Left = styled.div`
     left: 15px;
     transition: all 0.2s;
 
-    @media (max-width: 200px) {
+    @media (max-width: 240px) {
         opacity: 0;
     }
 `
