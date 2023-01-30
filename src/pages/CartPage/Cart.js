@@ -5,12 +5,13 @@ import { useEffect, useState } from "react";
 import { Container, StyleCheckout, StyledModal, StyleEmptyCart, StyleProduct, StyleRestaurant } from "./CartStyle.js";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid'
 
 Modal.setAppElement('#root');
 
 
 export default function Cart(props) {
-    console.log(props)
+    // console.log(props)
     const navigate = useNavigate()
     const [restaurantId, setRestaurantId] = useState(null)
     const [cartItems, setCartItems] = useState([])
@@ -30,7 +31,7 @@ export default function Cart(props) {
             getRestaurant()
         }
         
-    }, [cartItems])
+    }, [])
 
     async function getCart() {
 
@@ -112,7 +113,7 @@ export default function Cart(props) {
                 )}
 
                 {cartItems.map((item) => {
-                    return <StyleProduct>
+                    return <StyleProduct key={uuidv4()}>
                         <img src={item.bigImages} alt="" />
                         <div>
                             <h1>{item.description}</h1>

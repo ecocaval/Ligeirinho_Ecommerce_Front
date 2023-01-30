@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 
 export default function RestaurantDetails(props) {
     const navigate=useNavigate();
-    console.log(props)
+    // console.log(props)
     const [products, setProducts] = React.useState()
 
     const config = {
@@ -22,7 +22,7 @@ export default function RestaurantDetails(props) {
     }
     React.useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed.id}`, config).then(resp => {
-           console.log(props)
+        //    console.log(props)
         })
 
     }, [])
