@@ -66,6 +66,7 @@ export const RestaurantInfo = styled.div`
         width: 30px;
         border-radius: 30px;
         z-index: 2;
+        border: 0.5px lightgray solid;
     }
 
     p {
