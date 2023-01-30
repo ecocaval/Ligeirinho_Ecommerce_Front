@@ -11,18 +11,19 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 
 export default function RestaurantDetails(props) {
-    const navigate=useNavigate();
-    console.log(props)
+    const navigate = useNavigate();
+    console.log(props.restaurantchoosed)
     const [products, setProducts] = React.useState()
-
+    console.log(products)
     const config = {
         headers: {
             Authorization: props.dadosUsuario.token
         }
     }
     React.useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed.id}`, config).then(resp => {
-           console.log(props)
+        axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed._id}/products`, config).then(resp => {
+            setProducts(resp.data)
+            console.log(resp.data)
         })
 
     }, [])
@@ -39,135 +40,34 @@ export default function RestaurantDetails(props) {
                 <Banner>
                     <img src={props.restaurantchoosed.smallImages[0]}></img>
                 </Banner>
-                {/* fazer uma requisição get para os produtos do restaurante(/restaurants/:restaurantId/products). Espero receber imagem, preço, descrição e id pelo menos 
-                logo dps fazer um map na lista q vou receber e renderizar os elementos abaixo*/}
-                {/* {props.restaurantchoosed.categories.map(c => { */}
-                
-                <SectionProduct>
-                    <Category>haha</Category>
-                    <Products>
-                    <Product onClick={() => {
-                        props.setIdProduct('produto.id')
-                        navigate(`/restaurant/${props.restaurantchoosed.id}/product/`)
-                    }}>
-                        <Image src={props.restaurantchoosed.smallImages[0]} ></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    
-                </Products>
-                </SectionProduct>      
-                {/* }
-             )}          
-                 */}
-                
-                
-                
-                
-                
-                <SectionProduct>
-                    <Category>BURGUERS</Category>
-                <Products>
-                    <Product onClick={() => {
-                        props.setIdProduct('produto.id')
-                        navigate('/restaurant/product')
-                    }}>
-                        <Image src={props.restaurantchoosed.smallImages[0]} ></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    
-                </Products>
-                </SectionProduct>
-                <SectionProduct>
-                    <Category>SORVETES</Category>
-                <Products>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>Sundae</Description>
-                        <Price>R$ 11,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>Sundae</Description>
-                        <Price>R$ 11,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>Sundae</Description>
-                        <Price>R$ 11,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>Sundae</Description>
-                        <Price>R$ 11,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>Sundae</Description>
-                        <Price>R$ 11,99</Price>
-                    </Product>
-                    
-                    
-                </Products>
-                </SectionProduct>
-                <SectionProduct>
-                    <Category>BURGUERS</Category>
-                <Products>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    <Product>
-                        <Image src={props.restaurantchoosed.smallImages[0]}></Image>
-                        <Description>BIG MAC</Description>
-                        <Price>R$ 12,99</Price>
-                    </Product>
-                    
-                </Products>
-                </SectionProduct>
 
+
+                {props.restaurantchoosed.categories.map(c => (
+                    <SectionProduct key={c}>
+                        <Category>{c}</Category>
+                        <Products>
+                            {products !== undefined ? (
+                                products
+                                    .filter(p => p.category === c)
+                                    .map(p => (
+                                        <Product
+                                            key={p.id}
+                                            onClick={() => {
+                                                props.setIdProduct(p.id);
+                                                navigate(`/restaurant/${props.restaurantchoosed.id}/product/${p.id}`);
+                                            }}
+                                        >
+                                            <Image src={p.smallImages[0]} />
+                                            <Description>{p.name}</Description>
+                                            <Price>{`R$ ${p.price}`}</Price>
+                                        </Product>
+                                    ))
+                            ) : (
+                                <p>Não há produtos para exibir</p>
+                            )}
+                        </Products>
+                    </SectionProduct>
+                ))}
 
             </Section>
             <Footer></Footer>
