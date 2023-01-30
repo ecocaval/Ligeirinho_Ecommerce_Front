@@ -32,6 +32,15 @@ export const Products = styled.div`
     justify-content: flex-start;
     align-items: end;
     overflow-x:auto;
+    position: relative;
+
+    .loader{
+      position: absolute;
+    top: 24px;
+    right: calc(50% - 40px);
+    color: #ff8d00;
+      
+    }
 `
 
 export const Product = styled.div`
