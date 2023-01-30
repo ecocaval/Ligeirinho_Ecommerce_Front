@@ -18,7 +18,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
-    const {productId, restaurantId} = useParams()
+    const { productId, restaurantId } = useParams()
     const navigate = useNavigate()
     const [productRequested, setProductRequested] = useState({})
     const [productImages, setProductImages] = useState([])
@@ -70,7 +70,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
             setDadosUsuario(localStorageUserData)
             userData = localStorageUserData
         }
-        
+
         const cartRoute = `${process.env.REACT_APP_API_URL}/carts/${userData.userId}`
 
         const authorization = {
@@ -81,11 +81,18 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
         try {
 
-            await axios.put(cartRoute, {
+            const userCart = await axios.get(cartRoute, authorization)
+
+            const productToInsertInCart = {
                 productId: productRequested._id,
                 quantity: productQuantity,
-                description: userDescription
-            }, authorization)
+                description: userDescription,
+                price: productRequested.price,
+                restaurantId: productRequested.restaurantId,
+                bigImages: productRequested.bigImages
+            }
+
+            await axios.put(cartRoute, productToInsertInCart, authorization)
 
             navigate('/cart')
         } catch (err) {
