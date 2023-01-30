@@ -10,17 +10,17 @@ export default function Footer(props) {
         <Rodape>
             <Link to='/home'><AiTwotoneHome className="svg" /></Link>
             <HiMagnifyingGlass className="svg" />
-            <BsBasket className="svg" />
+            <Link to='/cart'><BsBasket className="svg" /></Link>
             <BsPerson className="svg" />
-            {/* <img
-                // className="papaleguas"
+            <img
+                className="papaleguas"
                 onClick={() => {
                     const audio = new Audio('./assets/audios/papaleguas.mp3')
                     audio.play();
                 }}
                 src={'./assets/img/papaleguas.gif'}
                 alt=""
-            /> */}
+            />
         </Rodape>
     )
 }

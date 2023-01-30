@@ -14,12 +14,12 @@ import {
     ProductTitle, QuantityText, QuantityTextContainer, RestaurantInfo, SendButtonContainer,
     StyledMain, SubtractButton
 } from "./ProductPageStyle";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
 
     const {productId, restaurantId} = useParams()
-
+    const navigate = useNavigate()
     const [productRequested, setProductRequested] = useState({})
     const [productImages, setProductImages] = useState([])
     const [restaurantRequested, setRestaurantRequested] = useState({})
@@ -80,7 +80,6 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
         }
 
         try {
-            await axios.post(cartRoute, {}, authorization)
 
             await axios.put(cartRoute, {
                 productId: productRequested._id,
@@ -88,7 +87,7 @@ export default function ProductPage({ dadosUsuario, setDadosUsuario }) {
                 description: userDescription
             }, authorization)
 
-            // navigate('') //! Navegar para a página do carrinho de compras
+            navigate('/cart')
         } catch (err) {
             console.log(err);
             alert("Houve um erro ao enviar o pedido!")

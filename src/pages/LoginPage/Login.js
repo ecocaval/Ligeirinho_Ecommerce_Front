@@ -32,6 +32,7 @@ export default function Login(props) {
                 props.setHabilitado(false);
                 setEntrar('Entrar')
                 navigate('/home')
+                console.log(props.dadosUsuario)
             })
             .catch(() => {
                 alert('Usuário ou senha incorretos')

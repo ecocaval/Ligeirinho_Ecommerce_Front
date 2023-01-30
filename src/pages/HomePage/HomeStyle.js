@@ -9,6 +9,7 @@ export const Section = styled.div`
     position: fixed;
     height: calc(100% - 175px);
     display: flex;
+    flex-direction: column;
     width: 100%;
     z-index: 0;
     overflow-y:auto;
@@ -18,11 +19,12 @@ export const Section = styled.div`
 `
 
 export const NavBar = styled.nav`
-
+    p{
+        margin-left:10px;
+    }
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     position: absolute;
     top:70px;
     height: 35px;
@@ -40,6 +42,7 @@ export const NavBar = styled.nav`
     }
     .star{
         display:flex;
+        margin-left: 10px;
     }
     .heart{
         position:absolute;

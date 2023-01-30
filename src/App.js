@@ -6,6 +6,7 @@ import Home from "./pages/HomePage/Home";
 import styled from "styled-components"
 import RestaurantDetails from "./pages/RestaurantDetailsPage/RestaurantDetails";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Cart from "./pages/CartPage/Cart";
 
 function App() {
 
@@ -57,6 +58,12 @@ function App() {
               dadosUsuario={dadosUsuario}
               setDadosUsuario={setDadosUsuario}
               idproduct={idproduct}
+            />} />
+
+          <Route path="/cart" element={
+            <Cart
+              dadosUsuario={dadosUsuario}
+              restaurantData={restaurantData}
             />} />
 
         </Routes>
