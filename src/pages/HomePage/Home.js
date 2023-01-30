@@ -14,6 +14,7 @@ import { RxLetterCaseCapitalize } from "react-icons/rx";
 import { FaHeart } from "react-icons/fa";
 import { CiMoneyBill } from "react-icons/ci";
 import { AiOutlineFieldTime } from "react-icons/ai";
+import sortArray from "./utils/sortArray";
 
 export default function Home(props) {
 
@@ -58,7 +59,7 @@ export default function Home(props) {
     async function getProducts(authorization) {
         try {
             const products = await axios.get(`${connectionString}/products`, authorization)
-            setProductsData(products.data)
+            setProductsData((sortArray(products.data))) 
         } catch (err) {
             console.log(err);
             alert("Houve um erro ao receber os produtos!")
