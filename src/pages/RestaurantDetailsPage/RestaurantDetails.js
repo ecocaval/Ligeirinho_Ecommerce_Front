@@ -24,7 +24,7 @@ export default function RestaurantDetails(props) {
     React.useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/restaurants/${props.restaurantchoosed._id}/products`, config).then(resp => {
             setProducts(resp.data)
-            
+            console.log(resp.data)
         })
 
     }, [])
@@ -54,8 +54,9 @@ export default function RestaurantDetails(props) {
                                         <Product
                                             key={p.id}
                                             onClick={() => {
-                                                props.setIdProduct(p.id);
-                                                navigate(`/restaurant/${props.restaurantchoosed.id}/product/${p.id}`);
+                                                console.log(p.id)
+                                                props.setIdProduct(p._id);
+                                                navigate(`/restaurant/${props.restaurantchoosed._id}/product/${p._id}`);
                                             }}
                                         >
                                             <Image src={p.smallImages[0]} />
