@@ -3,6 +3,7 @@ import { RestaurantStyled } from "./RestaurantStyle";
 import React from "react";
 import { AiFillStar } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 
 export default function Restaurant(props) {
     console.log(props)
@@ -14,14 +15,14 @@ export default function Restaurant(props) {
         <>
             <RestaurantStyled onClick={() => {
                     // console.log('teste')
-                    props.setRestaurantChoosed(props.atributo)
+                    props.setRestaurantChoosed(props.restaurant)
                     navigate('/restaurant')
                 }}>
                 {/* Todos estes dados abaixo virão da API. pegar as props que virão e colocar nas devidas informações */}
-                <img src={props.atributo.smallImages[0]} alt="" />
+                <img src={props.restaurant.smallImages[0]} alt="" />
                 <div className="description">
-                <h1>{props.atributo.name}</h1>
-                <div className="star"><h2>{props.atributo.typeOfFood}</h2><p>{props.atributo.priceRank}</p><AiFillStar className="svg"></AiFillStar></div>
+                <h1>{props.restaurant.name}</h1>
+                <div className="star"><h2>{props.restaurant.typeOfFood}</h2><p>{props.restaurant.priceRank}</p><AiFillStar className="svg"></AiFillStar></div>
                     
                   
                     
