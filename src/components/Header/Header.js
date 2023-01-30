@@ -9,7 +9,7 @@ export default function Header(props) {
             <Left>
                 <IoReorderThreeOutline
                     className="svg"
-                    onClick={() => props.setClick(!props.click)}
+                    // onClick={() => props.setClick(!props.click)}
                 />
             </Left>
             {/* <img src={'./assets/img/papaleguas.gif'}></img> */}
