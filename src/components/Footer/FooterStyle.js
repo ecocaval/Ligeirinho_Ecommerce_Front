@@ -28,7 +28,7 @@ export const Rodape = styled.div`
         line-height: 49px;
         color: #FFFFFF;
     }
-
+    
     img {
         left: 50px;
         position: absolute;
