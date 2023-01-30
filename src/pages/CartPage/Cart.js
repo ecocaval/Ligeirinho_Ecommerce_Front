@@ -9,36 +9,44 @@ import { v4 as uuidv4 } from 'uuid'
 
 Modal.setAppElement('#root');
 
-
 export default function Cart(props) {
-    // console.log(props)
+
     const navigate = useNavigate()
     const [restaurantId, setRestaurantId] = useState(null)
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState(null)
     const [restaurant, setRestaurant] = useState({})
     const [openFinalizationModal, setOpemFinalizationModal] = useState(false)
+
     const config = {
         headers: {
             Authorization: props.dadosUsuario.token
         }
     }
-    const total = cartItems.reduce((acc, item) => {
-        return acc + (item.price * item.quantity)
-    }, 0)
+
+    let total
+
     useEffect(() => {
         getCart()
-        if (cartItems.length > 0) {
+        if (cartItems) {
+            
+            total = cartItems.reduce((acc, item) => {
+                return acc + (item.price * item.quantity)
+            }, 0)
+
             getRestaurant()
         }
-        
+
     }, [])
 
     async function getCart() {
 
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/carts/${props.dadosUsuario.userId}`, config)
         setCartItems(response.data.products)
-        setRestaurantId(response.data.products[0].restaurantId)
-
+        if(response.data.products) {
+            if(response.data.products.length > 0) {
+                setRestaurantId(response.data.products[0].restaurantId)
+            }
+        }
     }
 
     async function getRestaurant() {
@@ -50,7 +58,7 @@ export default function Cart(props) {
         navigate("/home")
     }
 
-    function finalizeOrder(){
+    function finalizeOrder() {
         axios.delete(`${process.env.REACT_APP_API_URL}/carts/${props.dadosUsuario.userId}`, config)
         navigate("/home")
     }
@@ -58,7 +66,7 @@ export default function Cart(props) {
     return (
         <Container>
             <Modal
-                isOpen={cartItems.length === 0}
+                isOpen={cartItems ? cartItems.length === 0 : true}
                 onRequestClose={backToRestaurants}
                 style={{
                     content: {
@@ -98,7 +106,7 @@ export default function Cart(props) {
             </Modal>
             <Header></Header>
             <>
-                {cartItems.length > 0 ? (
+                {cartItems ? (
                     <StyleProduct>
                         <img src={restaurant.smallImages} alt="" />
                         <div>
@@ -112,7 +120,7 @@ export default function Cart(props) {
                     </StyleEmptyCart>
                 )}
 
-                {cartItems.map((item) => {
+                {cartItems ? cartItems.map((item) => {
                     return <StyleProduct key={uuidv4()}>
                         <img src={item.bigImages} alt="" />
                         <div>
@@ -120,11 +128,11 @@ export default function Cart(props) {
                             <p>{Number(item.quantity) * Number(item.price)}</p>
                         </div>
                     </StyleProduct>
-                })}
+                }) : <></>}
                 <StyleCheckout>
                     <div>
                         <h1>Total</h1>
-                        <p>{total}</p>
+                        <p>{total ? total : ""}</p>
                     </div>
                     <button onClick={() => setOpemFinalizationModal(true)}>Continuar</button>
                 </StyleCheckout>
