@@ -12,7 +12,7 @@ export default function Footer(props) {
             <HiMagnifyingGlass className="svg" />
             <Link to='/cart'><BsBasket className="svg" /></Link>
             <BsPerson className="svg" />
-            {/* <img
+            {<img
                 className="papaleguas"
                 onClick={() => {
                     const audio = new Audio('./assets/audios/papaleguas.mp3')
@@ -20,7 +20,7 @@ export default function Footer(props) {
                 }}
                 src={'./assets/img/papaleguas.gif'}
                 alt=""
-            /> */}
+            />}
         </Rodape>
     )
 }
